@@ -4,8 +4,7 @@
 function ProductPage(){
 return(
   <div className="w-full h-full">
-  <p>jkhhjgjhgj</p>
-  <p>hi</p>
+ ProductPage
       </div>
 )
 }

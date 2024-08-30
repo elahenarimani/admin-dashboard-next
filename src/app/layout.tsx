@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
+import ProductPage from "./product/page";
+import Shiping from "./product/new/page";
+import Navigation from "@/components/navigation/Navigation";
+import SideBar from "@/components/sideBar/SideBar";
 const vazir = Vazirmatn({ subsets: ["arabic"] });
 export const metadata: Metadata = {
   title: "Admin-Dashboard",
@@ -13,11 +17,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={vazir.className}>{children}
-        <div className="flex justify-between">
-        <div className="w-11/12 h-[50px] border-solid border-2 border-black ">jhhj</div>
-        <div className="w-1/12 h-[100vh] border-solid border-2 border-black ">khk</div>
-        </div>
+      <body className={vazir.className } >
+      
+          <div className="navigation w-full h-full grid  grid-cols-[95.6%_4.4%] grid-rows-[70px_1fr] bg-white justify-between items-center  ml-auto gap-x-0">
+          <div className="w-full col-start-1 col-end-2  row-start-1 row-end-2 h-[70px] pl-[84px] border-[3px] border-solid border-[#F5F6FA]">
+            <Navigation/>
+          </div>
+          <div className="side-bar w-full  h-full col-start-2 col-end-3 row-start-1 row-end-[-1]  !ml-0 mr-auto ">
+            <SideBar/>
+          </div>
+          <main className="w-full h-full  col-start-1 col-end-2  row-start-2 row-end-[-1] bg-[#F5F6FA]  pl-[30px] pr-[30px]">{children}</main>
+          </div>
+        <Shiping />
       </body>
     </html>
   );
