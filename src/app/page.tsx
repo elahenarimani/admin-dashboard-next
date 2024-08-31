@@ -1,8 +1,9 @@
 
 
-import SaleDetail from "@/components/saleDetail/SaleDetail";
 import ProductPage from "./product/page";
-// import Salesdetail from "@/components/salesDetail/Salesdetail";
+import RenderLineChart from "@/components/renderLineChart/renderLineChart"
+// import Salesdetail from "@/components/salesDetail/Sales
+
 
 export default function Home() {
   return (
@@ -17,9 +18,13 @@ hi
         <div className="total-pending w-[300px] h-[170px] bg-white rounded-[5px]">hi</div>
 
       </div>
-      <div className="sales-detail !w-full h-[344px] bg-white rounded-[5px] mt-[30px] pl-[15px] pr-[15px] ">
+      <div className="sales-detail !w-full h-[344px] bg-white rounded-[5px] mt-[30px] pb-[58px] pt-[7px] pl-[32px] pr-[32px] ">
         {/* < Salesdetail/> */}
-        <SaleDetail/>
+       
+          <p className="mt-[50px]">جزئیات فروش</p>
+        
+        <RenderLineChart />
+        
       </div>
       <div className="deals-details w-full h-[344px] bg-white rounded-[5px] mt-[30px] pl-[15px] pr-[15px] pt-[20px]">جزئیات معاملات</div>
     </div>
