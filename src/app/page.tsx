@@ -8,7 +8,7 @@ import RenderLineChart from "@/components/renderLineChart/renderLineChart"
 export default function Home() {
   return (
     <div >
-      <p className="text-[32px]   mt-[30px] mb-[23px]">داشبورد</p>
+      <p className="text-[32px] mt-[30px] mb-[23px]">داشبورد</p>
       <div className="w-full flex justify-between items-center gap-[30px]">
         <div className="total-users w-[300px] h-[170px] bg-white rounded-[5px]">hi</div>
         <div  className="total-order w-[300px] h-[170px] bg-white rounded-[5px]">
