@@ -11,32 +11,7 @@ const InboxPage = () => {
       draft : []
     }
   ]
-  const inbox = [
-    {
-      id: 1,
-      from: 'ali.r@gmail.com',
-      subject: 'Hello!',
-      message: 'go to gym',
-      timestamp: '2023-10-03 10:30:00',
-      isRead: false,
-    },
-    {
-      id: 2,
-      from: 'afsane.k@gmail.com',
-      subject: "Got Gmail? This'll be eeeasy.",
-      message: 'Move your Fitbit profile to a Google Account to securely access your favorite Google essentials, now including Fitbit.¹',
-      timestamp: '2023-11-30 11:46:00',
-      isRead: false,
-    },
-    {
-      id: 3,
-      from: 'jamshid.h@gmail.com',
-      subject: "We’ve updated our Terms of Service and Privacy Policy",
-      message: "We continually strive to give our users clear information about how Strava operates and control over what they share on the platform. This year, we’ve made some changes to our Terms of Service, Privacy Policy, Legal Bases, and Cookie Policy. Here are some highlights:",
-      timestamp: '2023-9-15 4:36:00',
-      isRead: false,
-    }
-  ];
+  
   const sent = [
     {
       id: 1,
