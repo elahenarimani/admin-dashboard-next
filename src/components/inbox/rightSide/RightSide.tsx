@@ -51,7 +51,7 @@ const RightSide = () => {
       label: "social",
     },
     {
-      id: 4,
+      id: 5,
       from: "arman.t@gmail.com",
       subject: "احوالپرسی",
       message: "فقط دارم چک می‌کنم که چطوری هستی.",
@@ -60,16 +60,19 @@ const RightSide = () => {
       label: "",
     },
   ];
-  const shortMessage = (message : string , maxLength : number) =>{
-    if(message.length>maxLength){
-      return (message.slice(0, maxLength) + '...')
+  const shortMessage = (message: string, maxLength: number) => {
+    if (message.length > maxLength) {
+      return message.slice(0, maxLength) + "...";
     }
-      return message;
-  }
+    return message;
+  };
   return (
     <div className="w-3/4 bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-0 mt-0">
-      <div>
-      <SearchBox/>
+      <div className="w-full flex justify-between items-center">
+        <div className="w-[330px] h-[40px]">
+          <SearchBox inbox={inbox} />
+        </div>
+        <div>camkj</div>
       </div>
       {inbox.map((item) => {
         return (
@@ -91,24 +94,26 @@ const RightSide = () => {
               {" "}
               <p className="truncate">{item.subject}</p>
             </div>
-            <div
-              className="w-[100px] flex justify-center items-center text-[14px] "
-            >
-              <p className={`w-[60px] h-[22px] text-center pt-[2px] ${
-                item.label === "primary"
-                  ? "bg-[#CCF0EB]"
-                  : item.label === "work"
-                  ? "bg-[#FFEBDD]"
-                  : item.label === "friends"
-                  ? "bg-[#F6DDFF]"
-                  : item.label === "social"
-                  ? "bg-[#DEE8FF]"
-                  : "bg-transparent"
-              }`}>
+            <div className="w-[100px] flex justify-center items-center text-[14px] ">
+              <p
+                className={`w-[60px] h-[22px] text-center pt-[2px] ${
+                  item.label === "primary"
+                    ? "bg-[#CCF0EB]"
+                    : item.label === "work"
+                    ? "bg-[#FFEBDD]"
+                    : item.label === "friends"
+                    ? "bg-[#F6DDFF]"
+                    : item.label === "social"
+                    ? "bg-[#DEE8FF]"
+                    : "bg-transparent"
+                }`}
+              >
                 {item.label}
               </p>
             </div>
-            <div className="w-[400px]"><p className='truncate'>{shortMessage(item.message , 35)}</p> </div>
+            <div className="w-[400px]">
+              <p className="truncate">{shortMessage(item.message, 35)}</p>{" "}
+            </div>
             <div className="w-[54px] h-[19px]">
               <p>{item.timestamp}</p>
             </div>
