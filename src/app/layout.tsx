@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
-import ProductPage from "./product/page";
+import ProductPage from "./product/layout";
 import Shiping from "./product/new/page";
 import Navigation from "@/components/navigation/Navigation";
 import SideBar from "@/components/sideBar/SideBar";
@@ -17,8 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={vazir.className } >
-      
+      <body className={vazir.className } > 
           <div className="navigation w-full h-full grid  grid-cols-[95.6%_4.4%] grid-rows-[70px_1fr] bg-white justify-between items-center  ml-auto gap-x-0">
           <div className="w-full col-start-1 col-end-2  row-start-1 row-end-2 h-[70px] pl-[84px] border-[3px] border-solid border-[#F5F6FA]">
             <Navigation/>

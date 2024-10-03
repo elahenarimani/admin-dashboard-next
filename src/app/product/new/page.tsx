@@ -3,7 +3,7 @@ import React from 'react'
 const ShipingPage = () => {
   return (
     <div>
-      shiping page
+      new page
     </div>
   )
 }

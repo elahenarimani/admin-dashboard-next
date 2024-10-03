@@ -1,6 +1,6 @@
 
 
-import ProductPage from "./product/page";
+import ProductPage from "./product/layout";
 import RenderLineChart from "@/components/renderLineChart/renderLineChart"
 // import Salesdetail from "@/components/salesDetail/Sales
 
@@ -12,7 +12,7 @@ export default function Home() {
       <div className="w-full flex justify-between items-center gap-[30px]">
         <div className="total-users w-[300px] h-[170px] bg-white rounded-[5px]">hi</div>
         <div  className="total-order w-[300px] h-[170px] bg-white rounded-[5px]">
-hi
+         hi
         </div>
         <div className="total-sales w-[300px] h-[170px] bg-white rounded-[5px]">hi</div>
         <div className="total-pending w-[300px] h-[170px] bg-white rounded-[5px]">hi</div>
