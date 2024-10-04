@@ -16,7 +16,6 @@ export default function Home() {
         </div>
         <div className="total-sales w-[300px] h-[170px] bg-white rounded-[5px]">hi</div>
         <div className="total-pending w-[300px] h-[170px] bg-white rounded-[5px]">hi</div>
-
       </div>
       <div className="sales-detail !w-full h-[344px] bg-white rounded-[5px] mt-[30px] pb-[58px] pt-[7px] pl-[32px] pr-[32px] ">
         {/* < Salesdetail/> */}
