@@ -46,6 +46,10 @@ const SearchBox = ({ inbox }: ISearchBox) => {
   const customStyles = {
     control: (base: any, state: any) => ({//Customizes the input’s container, focusing on the border, box-shadow, and how the component looks when the menu is open. The input and arrow are reversed in order (due to the Persian layout).
       ...base,
+      width: '330px', // Adjust the width of the entire control (including the input)
+      height: '40px', // Adjust the height of the entire control
+      backgroundColor: "#F5F6FA", // Set input background color
+      // backGroundColor: '#F5F6FA',
       border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF", // Your favorite border color when focused
       boxShadow: "none", // Remove default box-shadow (which may include blue border)
       borderRadius: state.menuIsOpen ? "12px 12px 0 0" : "30px", // Remove bottom border-radius when menu is open

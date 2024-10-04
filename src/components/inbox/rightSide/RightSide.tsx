@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import SearchBox from "./searchBox/SearchBox";
+import ActionBox from "./actionBox/ActionBox";
 interface IInbox {
   id: number;
   from: string;
@@ -68,17 +69,19 @@ const RightSide = () => {
   };
   return (
     <div className="w-3/4 bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-0 mt-0">
-      <div className="w-full flex justify-between items-center">
-        <div className="w-[330px] h-[40px]">
+      <div className="w-full h-[100px] flex justify-between items-center pr-[24px] pl-[24px]">
+        <div className="search-wrapper">
           <SearchBox inbox={inbox} />
         </div>
-        <div>camkj</div>
+        <div className="actions-wrapper">
+          <ActionBox/>
+        </div>
       </div>
       {inbox.map((item) => {
         return (
           <div
             key={item.id}
-            className='message w-full h-[62px] border-b border-[1px] border-solid border-"#EFEFEF" flex justify-start items-center'
+            className='message w-full h-[62px] border-b-[1px] border-solid border-"#EFEFEF" flex justify-start items-center'
           >
             <div className="w-[48px]  flex justify-center items-center">
               <input
