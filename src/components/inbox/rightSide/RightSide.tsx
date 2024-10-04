@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import SearchBox from "./searchBox/SearchBox";
@@ -11,9 +12,9 @@ interface IInbox {
   isRead: boolean;
   label: string;
 }
-
 const RightSide = () => {
-  const inbox: IInbox[] = [
+  const [selectedEmails , setSelectedEmails] = useState<number[]>([])
+  const [inbox , setInbox] = useState<IInbox[]>([
     {
       id: 1,
       from: "ali.r@gmail.com",
@@ -60,13 +61,20 @@ const RightSide = () => {
       isRead: false,
       label: "",
     },
-  ];
+  ])
   const shortMessage = (message: string, maxLength: number) => {
     if (message.length > maxLength) {
       return message.slice(0, maxLength) + "...";
     }
     return message;
   };
+  const handleCheckboxChange = (emailId:number) => {
+   if(selectedEmails.includes(emailId)){
+    setSelectedEmails(selectedEmails.filter(id => id !== emailId))//remove from selectedEmails
+   }else{
+    setSelectedEmails([...selectedEmails,emailId]) //add to selectedEmails
+   }
+  }
   return (
     <div className="w-3/4 bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-0 mt-0">
       <div className="w-full h-[100px] flex justify-between items-center pr-[24px] pl-[24px]">
@@ -74,7 +82,7 @@ const RightSide = () => {
           <SearchBox inbox={inbox} />
         </div>
         <div className="actions-wrapper">
-          <ActionBox/>
+          <ActionBox inbox={inbox} setInbox={setInbox} selectedEmails={selectedEmails}  setSelectedEmails={setSelectedEmails}/>
         </div>
       </div>
       {inbox.map((item) => {
@@ -87,6 +95,7 @@ const RightSide = () => {
               <input
                 type="checkbox"
                 id={`${item.id}`}
+                onClick={() =>  handleCheckboxChange(item.id)}
                 className="w-[16px] h-[16px]"
               />
             </div>
@@ -126,5 +135,4 @@ const RightSide = () => {
     </div>
   );
 };
-
 export default RightSide;
