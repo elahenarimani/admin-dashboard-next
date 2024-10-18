@@ -38,7 +38,7 @@ const ActionBox = ({
       </button>
       <Button
         className="w-full h-full border-r-[2px] border-solid border-[#EFEFEF] flex justify-center items-center"
-        onClickHandler={()=>handleDelete()}
+        onClickHandler={handleDelete}
       >
         <FaTrash className="w-[16px] h-[16px]" />
       </Button>
