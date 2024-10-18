@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 interface IButton {
   children?: string | JSX.Element;
