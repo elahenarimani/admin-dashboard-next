@@ -33,18 +33,18 @@ const ActionBox = ({
   };
   return (
     <div className="w-[130px] h-[40px] grid grid-cols-3  border-[2px] border-solid border-[#EFEFEF] rounded-[12px] bg-[#F5F6FA]">
-      <Button className="w-full  h-full flex justify-center items-center">
+      <button className="w-full  h-full flex justify-center items-center">
         <IoMdArchive className="w-[16px] h-[16px]" />
-      </Button>
+      </button>
       <Button
         className="w-full h-full border-r-[2px] border-solid border-[#EFEFEF] flex justify-center items-center"
         onClickHandler={()=>handleDelete()}
       >
         <FaTrash className="w-[16px] h-[16px]" />
       </Button>
-      <Button className=" w-full h-full border-r-[2px] border-solid border-[#EFEFEF] flex justify-center items-center">
+      <button className=" w-full h-full border-r-[2px] border-solid border-[#EFEFEF] flex justify-center items-center">
         <BiSolidEnvelopeOpen className="w-[16px] h-[16px]" />
-      </Button>
+      </button>
     </div>
   );
 };
