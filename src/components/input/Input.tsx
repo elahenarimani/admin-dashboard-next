@@ -20,7 +20,9 @@ const Input = ({
       <input  
       value={value}
       onChange={(e:any) => inputHandler(e)}
-      onClick={() => onClickHandler()}
+      onClick={() => () => {if(onClickHandler){
+        onClickHandler()
+      }}}
       type='type'
       placeholder='placeholder'
       className='className'
