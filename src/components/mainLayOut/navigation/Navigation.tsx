@@ -12,19 +12,7 @@ const Navigation = () => {
   const openModal = () => {
     setIsModalOpen(true);
   };
-  const modalRef = useRef(null);
-
-  useEffect(() => {
-    const handleOutsideClick = (event: any) => {
-      if (isModalOpen && modalRef.current !== null && modalRef?.current?.contains(event.target)) {
-        setIsModalOpen(false);
-      }
-    };
-    document.addEventListener("click", handleOutsideClick);
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, [isModalOpen]);
+ 
   return (
     <div>
       <div className="mobile lg:hidden w-full h-[70px] pl-[24px] pr-[24px]">
@@ -52,7 +40,7 @@ const Navigation = () => {
           >
             <MdTableRows />
           </Button>
-          {isModalOpen && <ModalTable modalRef={modalRef}/>}
+          {isModalOpen && <ModalTable   setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />}
         </div>
       </div>
       <div className="desktop hidden lg:flex w-full h-full justify-between items-center pr-[43px]">
