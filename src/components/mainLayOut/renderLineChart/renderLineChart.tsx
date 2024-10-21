@@ -106,9 +106,9 @@ const RenderLineChart = () => {
           fill="url(#gradientColor)" // Use the defined gradient
           dot={{ fill: "#4379EE", r: 3 }} // Show dots on each data point
         />
-         <Tooltip content={<CustomTooltip />} 
+         {/* <Tooltip content={<CustomTooltip />} 
         //show data by hover
-        />
+        /> */}
       </AreaChart>
     </ResponsiveContainer>
   );
