@@ -12,7 +12,7 @@ const Navigation = () => {
   const openModal = () => {
     setIsModalOpen(true);
   };
- 
+
   return (
     <div>
       <div className="mobile lg:hidden w-full h-[70px] pl-[24px] pr-[24px]">
@@ -40,7 +40,12 @@ const Navigation = () => {
           >
             <MdTableRows />
           </Button>
-          {isModalOpen && <ModalTable   setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />}
+          {isModalOpen && (
+            <ModalTable
+              setIsModalOpen={setIsModalOpen}
+              isModalOpen={isModalOpen}
+            />
+          )}
         </div>
       </div>
       <div className="desktop hidden lg:flex w-full h-full justify-between items-center pr-[43px]">

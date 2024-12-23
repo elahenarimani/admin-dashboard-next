@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import SearchBox from "./searchBox/SearchBox";
 import ActionBox from "./actionBox/ActionBox";
+import "./rightSide.css"
 interface IInbox {
   id: number;
   from: string;
@@ -13,8 +14,8 @@ interface IInbox {
   label: string;
 }
 const RightSide = () => {
-  const [selectedEmails , setSelectedEmails] = useState<number[]>([])
-  const [inbox , setInbox] = useState<IInbox[]>([
+  const [selectedEmails, setSelectedEmails] = useState<number[]>([]);
+  const [inbox, setInbox] = useState<IInbox[]>([
     {
       id: 1,
       from: "ali.r@gmail.com",
@@ -59,30 +60,98 @@ const RightSide = () => {
       message: "فقط دارم چک می‌کنم که چطوری هستی.",
       timestamp: " 13:46 ",
       isRead: false,
-      label: "",
+      label: "friends",
     },
-  ])
+    {
+      id: 6,
+      from: "sara.m@gmail.com",
+      subject: "پیگیری سفارش",
+      message: "آیا سفارش من ارسال شده است؟ لطفاً اطلاع دهید.",
+      timestamp: "12:30",
+      isRead: false,
+      label: "primary",
+    },
+    {
+      id: 7,
+      from: "support@amazon.com",
+      subject: "تأیید خرید",
+      message: "سفارش شما با موفقیت ثبت شد.",
+      timestamp: "08:45",
+      isRead: true,
+      label: "primary",
+    },
+    {
+      id: 8,
+      from: "ali.n@gmail.com",
+      subject: "سوال درباره پروژه",
+      message: "آیا می‌توانیم فردا درباره پروژه صحبت کنیم؟",
+      timestamp: "17:15",
+      isRead: false,
+      label: "work",
+    },
+    {
+      id: 9,
+      from: "newsletter@udemy.com",
+      subject: "تخفیف ویژه",
+      message: "دوره‌های جدید با 50% تخفیف!",
+      timestamp: "19:10",
+      isRead: true,
+      label: "social",
+    },
+    {
+      id: 10,
+      from: "friend@example.com",
+      subject: "برنامه آخر هفته",
+      message: "آیا دوست داری این هفته به کوه برویم؟",
+      timestamp: "15:00",
+      isRead: false,
+      label: "friends",
+    },
+    {
+      id: 11,
+      from: "hamid.t@gmail.com",
+      subject: "تحویل مدارک",
+      message: "لطفاً مدارک را تا فردا ارسال کنید.",
+      timestamp: "09:50",
+      isRead: false,
+      label: "work",
+    },
+    {
+      id: 12,
+      from: "sale@nike.com",
+      subject: "حراج پایان فصل",
+      message: "همه محصولات با 30% تخفیف!",
+      timestamp: "20:05",
+      isRead: true,
+      label: "social",
+    },
+  ]);
   const shortMessage = (message: string, maxLength: number) => {
     if (message.length > maxLength) {
       return message.slice(0, maxLength) + "...";
     }
     return message;
   };
-  const handleCheckboxChange = (emailId:number) => {
-   if(selectedEmails.includes(emailId)){
-    setSelectedEmails(selectedEmails.filter(id => id !== emailId))//remove from selectedEmails
-   }else{
-    setSelectedEmails([...selectedEmails,emailId]) //add to selectedEmails
-   }
-  }
+  const handleCheckboxChange = (emailId: number) => {
+    if (selectedEmails.includes(emailId)) {
+      setSelectedEmails(selectedEmails.filter((id) => id !== emailId)); //remove from selectedEmails
+    } else {
+      setSelectedEmails([...selectedEmails, emailId]); //add to selectedEmails
+    }
+  };
   return (
-    <div className="w-3/4 bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-0 mt-0">
+    <div className="w-3/4 bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[844px] rounded-[5px] pt-0 mt-0">
       <div className="w-full h-[100px] flex justify-between items-center pr-[24px] pl-[24px]">
         <div className="search-wrapper">
           <SearchBox inbox={inbox} />
         </div>
         <div className="actions-wrapper">
-          <ActionBox inbox={inbox} setInbox={setInbox} selectedEmails={selectedEmails}  setSelectedEmails={setSelectedEmails}/>
+          <ActionBox
+            inbox={inbox}
+            setInbox={setInbox}
+            selectedEmails={selectedEmails}
+            setSelectedEmails={setSelectedEmails}
+          />
         </div>
       </div>
       {inbox.map((item) => {
@@ -95,7 +164,7 @@ const RightSide = () => {
               <input
                 type="checkbox"
                 id={`${item.id}`}
-                onClick={() =>  handleCheckboxChange(item.id)}
+                onClick={() => handleCheckboxChange(item.id)}
                 className="w-[16px] h-[16px]"
               />
             </div>
