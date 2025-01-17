@@ -33,7 +33,7 @@ export default function Home() {
             </div>
           </div>
           <div className="total-order w-[300px] h-[170px] bg-white rounded-[5px] p-[24px]">
-          <div className="w-full h-full flex flex-col justify-between items-center gap-[30px]">
+            <div className="w-full h-full flex flex-col justify-between items-center gap-[30px]">
               <div className="w-full h-full flex flex-row justify-between items-center ">
                 <div className="w-[60px] h-[60px] bg-[#E5E4FF] flex justify-center items-center rounded-[20px]">
                   <RiGroupFill className="text-[#8280FF]" />
@@ -57,7 +57,7 @@ export default function Home() {
             </div>
           </div>
           <div className="total-sales w-[300px] h-[170px] bg-white rounded-[5px]">
-          <div className="w-full h-full flex flex-col justify-between items-center gap-[30px] p-[24px]">
+            <div className="w-full h-full flex flex-col justify-between items-center gap-[30px] p-[24px]">
               <div className="w-full h-full flex flex-row justify-between items-center ">
                 <div className="w-[60px] h-[60px] bg-[#E5E4FF] flex justify-center items-center rounded-[20px]">
                   <RiGroupFill className="text-[#8280FF]" />
@@ -81,7 +81,7 @@ export default function Home() {
             </div>
           </div>
           <div className="total-pending w-[300px] h-[170px] bg-white rounded-[5px]">
-          <div className="w-full h-full flex flex-col justify-between items-center gap-[30px] p-[24px]">
+            <div className="w-full h-full flex flex-col justify-between items-center gap-[30px] p-[24px]">
               <div className="w-full h-full flex flex-row justify-between items-center ">
                 <div className="w-[60px] h-[60px] bg-[#E5E4FF] flex justify-center items-center rounded-[20px]">
                   <RiGroupFill className="text-[#8280FF]" />
@@ -106,22 +106,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <div className="w-full flex justify-between items-center gap-[30px]">
-        <div className="total-users w-[300px] h-[170px] bg-white rounded-[5px]">
-          hi
-        </div>
-        <div className="total-order w-[300px] h-[170px] bg-white rounded-[5px]">
-          hi
-        </div>
-        <div className="total-sales w-[300px] h-[170px] bg-white rounded-[5px]">
-          hi
-        </div>
-        <div className="total-pending w-[300px] h-[170px] bg-white rounded-[5px]">
-          hi
-        </div>
-      </div> */}
       <div className="sales-detail !w-full h-[344px] bg-white rounded-[5px] mt-[30px] pb-[58px] pt-[7px] pl-[32px] pr-[32px] ">
-        {/* < Salesdetail/> */}
         <p className="mt-[50px]">جزئیات فروش</p>
         <RenderLineChart />
       </div>
