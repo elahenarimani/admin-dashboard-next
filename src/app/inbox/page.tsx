@@ -1,8 +1,10 @@
 import LeftSide from "@/components/inbox/leftSide/LeftSide";
 import RightSide from "@/components/inbox/rightSide/RightSide";
 import React from "react";
-
-const InboxPage = () => {
+interface IInboxPage{
+  isOpen : Boolean
+}
+const InboxPage = ({isOpen}:IInboxPage) => {
   const user = [
     {
       inbox: [],
@@ -10,7 +12,6 @@ const InboxPage = () => {
       draft: [],
     },
   ];
-
   const sent = [
     {
       id: 1,
@@ -46,12 +47,16 @@ const InboxPage = () => {
   return (
     <div className="inbox w-full min-h-screen   pl-[30px] pr-[30px] bg-[#F5F6FA]">
       <p className="text-[32px] mt-[30px] mb-[23px]">صندوق ورودی</p>
-      <div className="w-full min-h-screen flex justify-between items-start gap-[30px] pt-0 mt-0">
+      <div className="w-full min-h-screen flex justify-between items-start gap-[30px] pt-0 mt-0 ">
         <LeftSide />
         <RightSide />
+        {/* {isOpen && (
+          <div className= "w-[200px] h-[300px] bg-slate-700 z-10000 right-0 absolute">
+            <P>hiiiiiiiiiiiiiiiiiiiiiiiiii</P>
+          </div>
+        )} */}
       </div>
     </div>
   );
 };
-
 export default InboxPage;

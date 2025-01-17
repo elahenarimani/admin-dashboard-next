@@ -19,5 +19,4 @@ const SideBar = () => {
     </ul>
   );
 };
-
 export default SideBar;

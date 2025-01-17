@@ -162,6 +162,7 @@ const RightSide = () => {
           >
             <div className="w-[48px]  flex justify-center items-center">
               <input
+                aria-label="search"
                 type="checkbox"
                 id={`${item.id}`}
                 onClick={() => handleCheckboxChange(item.id)}
