@@ -8,27 +8,31 @@ import { BsExclamationTriangle } from "react-icons/bs";
 import { TbMessageCircleStar } from "react-icons/tb";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { LiaTimesSolid } from "react-icons/lia";
+import Link from "next/link";
 import Input from "../../input/Input";
 import "./leftSide.css";
-import Link from "next/link";
+import SentPage from "@/app/inbox/[sent]/page";
+import { useContext } from "react";
+import { CompEmailContext } from "../../../app/inbox/page";
 const LeftSide = () => {
-  interface IcompEmail {
-    to: string | number;
-    subject: string | number;
-    content: string | number;
-    id: number;
-  }
+  const CompEmailContextX = useContext(CompEmailContext);
+  // interface IcompEmail {
+  //   to: string | number;
+  //   subject: string | number;
+  //   content: string | number;
+  //   id: number;
+  // }
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const [inpvalTo, setInpvalTo] = useState<string>("");
   const [inpvalSubject, setInpvalSubject] = useState<string>("");
   const [inpvalContent, setInpvalContent] = useState<string>("");
   const toggleCompose = () => setIsOpen(!isOpen);
-  const [compEmail, setCompEmail] = useState<IcompEmail[]>([]);
-  console.log(isOpen);
+  // const [compEmail, setCompEmail] = useState<IcompEmail[]>([]);
+  // console.log(isOpen);
   function sentBox() {
     console.log(inpvalTo);
-    setCompEmail([
-      ...compEmail,
+    CompEmailContextX?.setCompEmail([
+      ...CompEmailContextX?.compEmail,
       {
         to: inpvalTo,
         subject: inpvalSubject,
@@ -42,9 +46,9 @@ const LeftSide = () => {
     setInpvalSubject("");
     setInpvalContent("");
   }
-  {
-    console.log(compEmail);
-  }
+  // {
+  //   console.log(compEmail);
+  // }
   return (
     <div className="w-1/4 bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-[24px] mt-0 pl-[25px] pr-[25px] ">
       <div
@@ -216,6 +220,17 @@ const LeftSide = () => {
           </div>
         </div>
       )}
+      {CompEmailContextX?.compEmail.map((item) => {
+        return (
+           <SentPage
+           key={item.id}
+           inpvalTo={item.to}
+            inpvalSubject={item.subject}
+            inpvalContent={item.content}
+            id={item.id}
+          />
+        );
+      })}
     </div>
   );
 };

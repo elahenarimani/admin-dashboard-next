@@ -1,15 +1,40 @@
-// "use client"
-import React from 'react'
-// import { usePathname } from 'next/navigation'
+"use client"
+import RightSideSent from "@/components/inbox/rightSideSent/RightSideSent";
+import React, { useContext } from "react";
+import { CompEmailContext } from "../../../app/inbox/page";
+import { ImInsertTemplate } from "react-icons/im";
+interface ISentPage {
+    inpvalTo: string;
+    inpvalSubject: string;
+    inpvalContent: string;
+  id: number;
+  params?: { sent: string };
+}
+const SentPage = ({
+  inpvalTo,
+  inpvalSubject,
+  inpvalContent,
+  id,
+  params,
+}: ISentPage) => {
 
-const SentPage = ({params}:{params:{sent:string}}) => {
-    // const pathName = usePathname()
-    // console.log(pathName)
+  const CompEmailContextX = useContext(CompEmailContext)
+  // const pathName = usePathname()
+  // console.log(pathName)
   return (
     <div>
-      <p>it is sent page</p>
+      {CompEmailContextX?.compEmail.map((item) => {
+        return (
+          <RightSideSent
+            key={item.id}
+            inpvalTo={item.to}
+            inpvalSubject={item.subject}
+            inpvalContent={item.content}
+            id={item.id}
+          />
+        );
+      })}
     </div>
-  )
-}
-
-export default SentPage
+  );
+};
+export default SentPage;
