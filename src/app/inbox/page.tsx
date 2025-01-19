@@ -4,7 +4,7 @@ import React from "react";
 interface IInboxPage{
   isOpen : Boolean
 }
-const InboxPage = ({isOpen}:IInboxPage) => {
+export default function InboxPage ({isOpen}:IInboxPage) {
   const user = [
     {
       inbox: [],
@@ -50,13 +50,7 @@ const InboxPage = ({isOpen}:IInboxPage) => {
       <div className="w-full min-h-screen flex justify-between items-start gap-[30px] pt-0 mt-0 ">
         <LeftSide />
         <RightSide />
-        {/* {isOpen && (
-          <div className= "w-[200px] h-[300px] bg-slate-700 z-10000 right-0 absolute">
-            <P>hiiiiiiiiiiiiiiiiiiiiiiiiii</P>
-          </div>
-        )} */}
       </div>
     </div>
   );
 };
-export default InboxPage;

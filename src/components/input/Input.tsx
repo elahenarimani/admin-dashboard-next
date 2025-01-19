@@ -4,8 +4,8 @@ interface IInput {
   inputHandler: Function;
   className: string;
   placeholder: string;
-  type?: string;
-  onClickHandler?: Function | undefined;
+  type: string|number;
+  ariaLabel:string;
 }
 const Input = ({
   value,
@@ -13,23 +13,17 @@ const Input = ({
   className,
   placeholder,
   type,
-  onClickHandler,
+  ariaLabel,
 }: IInput) => {
   return (
     <div>
       <input
         value={value}
-        onChange={ inputHandler}
-        // onClick={() => () => {
-        //   if (onClickHandler) {
-        //     onClickHandler();
-        //     className = className;
-        //     placeholder = placeholder;
-        //   }
-        // }}
-        // type={type}
+        onChange={ (e:React.ChangeEvent<HTMLInputElement>) => inputHandler(e)}
         placeholder={placeholder}
         className={className}
+        aria-label={ariaLabel}
+        type={type}
       ></input>
     </div>
   );
