@@ -1,11 +1,14 @@
+
 import ProductPage from "./product/layout";
 import RenderLineChart from "@/components/mainLayOut/renderLineChart/renderLineChart";
 import { RiGroupFill } from "react-icons/ri";
 import { AiOutlineRise } from "react-icons/ai";
+import { useTheme } from "@emotion/react";
 export default function Home() {
   return (
     <div className="w-full  ">
       <p className="w-full text-[32px] mt-[30px] mb-[23px]">داشبورد</p>
+      <p></p>
       <div>
         <div className="w-full grid sm:grid-cols-1 gap-y-8 md:grid-cols-2 2xl:flex 2xl:justify-between items-center justify-items-center  pl-[32px] pr-[32px]">
           <div className="total-users w-[300px] h-[170px] bg-white rounded-[5px] p-[24px]">
@@ -106,13 +109,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="sales-detail !w-full h-[344px] bg-white rounded-[5px] mt-[30px] pb-[58px] pt-[7px] pl-[32px] pr-[32px] ">
+      <div className="sales-detail !w-full h-[344px] bg-white rounded-[5px] mt-[30px] pb-[58px] pt-[7px] pl-[32px] pr-[32px] mb-[5px]">
         <p className="mt-[50px]">جزئیات فروش</p>
         <RenderLineChart />
       </div>
-      <div className="deals-details w-full h-[344px] bg-white rounded-[5px] mt-[30px] pl-[15px] pr-[15px] pt-[20px]">
+      {/* <div className="deals-details w-full h-[344px] bg-white rounded-[5px] mt-[30px] pl-[15px] pr-[15px] pt-[20px]">
         جزئیات معاملات
-      </div>
+      </div> */}
     </div>
   );
 }

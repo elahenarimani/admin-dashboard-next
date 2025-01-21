@@ -12,7 +12,6 @@ const Navigation = () => {
   const openModal = () => {
     setIsModalOpen(true);
   };
-
   return (
     <div>
       <div className="mobile lg:hidden w-full h-[70px] pl-[24px] pr-[24px]">
@@ -49,7 +48,7 @@ const Navigation = () => {
         </div>
       </div>
       <div className="desktop hidden lg:flex w-full h-full justify-between items-center pr-[43px]">
-        <div className="profile !w-1/ !min-w-1/5 !max-w-1/5 h-[44px] flex flex-row justify-between items-center !gap-[26px]">
+        <div className="profile !w-1/5 !min-w-1/5 !max-w-1/5 h-[44px] flex flex-row justify-between items-center !gap-[26px]">
           <div className="!w-[18px] !min-w-[18px] !max-w-[18px] h-[18px]">
             <IoChevronDownCircleOutline className="!w-full h-full text-[#5C5C5C]" />
           </div>
