@@ -168,8 +168,9 @@ const LeftSide = () => {
           </div>
         </div>
       </div>
+      <div className="z-2147483647">
       {isOpen && (
-        <div className="compose-wrapper w-[600px] h-[500px] bg-white z-1000000000000000000000 right-[30px] bottom-0 fixed rounded-t-[10px]">
+        <div className="compose-wrapper w-[600px] h-[500px]  bg-white  right-[30px] bottom-0 fixed rounded-t-[10px]">
           <div className="w-full h-[40px] bg-[#F2F6FC] flex justify-between items-center pl-[15px] pr-[15px] rounded-t-[10px]">
             <p>پیام جدید</p>
             <div
@@ -233,6 +234,7 @@ const LeftSide = () => {
           </div>
         </div>
       )}
+      </div>
       {/* {compEmail.map((item) => {
         return ( */}
           {/* <RightSideSent

@@ -51,6 +51,7 @@ const SearchBoxSent = () => {
       height: '40px', // Adjust the height of the entire control
       backgroundColor: "#F5F6FA", // Set input background color
       // backGroundColor: '#F5F6FA',
+      
       border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF", // Your favorite border color when focused
       boxShadow: "none", // Remove default box-shadow (which may include blue border)
       borderRadius: state.menuIsOpen ? "12px 12px 0 0" : "30px", // Remove bottom border-radius when menu is open
@@ -68,6 +69,7 @@ const SearchBoxSent = () => {
       border: "2px solid #EFEFEF", // Match border color of dropdown with input
       borderTop: "none", // Remove the border between the input and dropdown
       boxShadow: "none", //remove border when menue is open
+      zIndex: 2,
     }),
     dropdownIndicator: (provided: any) => ({//Customizes the dropdown icon container, ensuring no background color or borders are applied.
       ...provided,

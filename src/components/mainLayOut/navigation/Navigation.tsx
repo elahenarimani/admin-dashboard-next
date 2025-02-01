@@ -13,15 +13,15 @@ const Navigation = () => {
     setIsModalOpen(true);
   };
   return (
-    <div>
-      <div className="mobile lg:hidden w-full h-[70px] pl-[24px] pr-[24px]">
-        <div className="w-full h-full flex flex-row justify-between items-center">
-          <div className="!w-[22px]  !h-[22px] bg-gray-600 rounded-[50%]">
-            <div className="!w-full !h-full"></div>
+    <div className="w-full !overflow-x-hidden">
+      <div className="mobile lg:hidden  h-[70px]  pl-[10px] pr-[10px] ">
+        <div className="w-full h-full flex flex-row justify-between items-center overflow-hidden">
+          <div className="w-[22px] h-[22px]  ">
+            <img className="w-full h-full rounded-[50%]" src="https://lh3.googleusercontent.com/ogw/AF2bZyhocAvZ41qG6q3uiivGLbsxF7iJu9N3HHfb0BlcGQBaReY=s32-c-mo" alt="profile-photo"/>
           </div>
-          <div className="w-auto h-[40px] flex flex-col justify-between items-start ">
+          <div className="max-w-full h-[40px] flex flex-col justify-between items-start ">
             <p className="whitespace-nowrap overflow-hidden text-ellipsis font-semibold ">
-              ا رضا نریمانی زاده
+                 الهه نریمانی
             </p>
             <p className="whitespace-nowrap overflow-hidden text-ellipsis text-[12px] font-medium opacity-[50%]">
               ادمین
@@ -54,15 +54,16 @@ const Navigation = () => {
           </div>
           <div className="w-auto h-full flex flex-col justify-between items-start ">
             <p className="whitespace-nowrap overflow-hidden text-ellipsis font-semibold ">
-              اااااااااامممممممممحمد رضا نریمانی زاده
+               الهه نریمانی  
             </p>
             <p className="whitespace-nowrap overflow-hidden text-ellipsis text-[12px] font-medium opacity-[50%]">
               ادمین
             </p>
           </div>
-          <div className="!w-[44px] !min-w-[44px] !max-w-[44px] !h-[44px] bg-gray-600 rounded-[50%]">
-            <div className="!w-full !h-full"></div>
+          <div className="!w-[44px] !min-w-[44px] !max-w-[44px] !h-[44px]">
+            <img className="!w-full !h-full rounded-[50%]" src="https://lh3.googleusercontent.com/ogw/AF2bZyhocAvZ41qG6q3uiivGLbsxF7iJu9N3HHfb0BlcGQBaReY=s32-c-mo" alt="profile-photo" />
           </div>
+
         </div>
         <div className="!w-1/12 !min-w-1/12 !max-w-1/12 h-full flex justify-between items-center gap-[3px] ">
           <p className="text-[14px] opacity-[50%] font-semibold">جستجو</p>

@@ -6,10 +6,9 @@ import { AiOutlineRise } from "react-icons/ai";
 import { useTheme } from "@emotion/react";
 export default function Home() {
   return (
-    <div className="w-full  ">
-      <p className="w-full text-[32px] mt-[30px] mb-[23px]">داشبورد</p>
-      <p></p>
-      <div>
+    <div className="w-full bg-[#F5F6FA] ">
+      <p className="w-full text-[32px] mt-[30px] mb-[23px] pr-[30px]">داشبورد</p>
+      <div className="w-full h-full">
         <div className="w-full grid sm:grid-cols-1 gap-y-8 md:grid-cols-2 2xl:flex 2xl:justify-between items-center justify-items-center  pl-[32px] pr-[32px]">
           <div className="total-users w-[300px] h-[170px] bg-white rounded-[5px] p-[24px]">
             <div className="w-full h-full flex flex-col justify-between items-center gap-[30px]">
