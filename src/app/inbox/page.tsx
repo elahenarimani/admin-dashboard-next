@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 // import LeftSide from "@/components/inbox/leftSide/LeftSide";
 // import { createContext } from 'react'
 // import RightSide from "@/components/inbox/rightSide/RightSide";
@@ -29,7 +29,7 @@
 import LeftSide from "@/components/inbox/leftSide/LeftSide";
 import RightSide from "@/components/inbox/rightSide/RightSide";
 import RightSideMob from "@/components/inbox/rightSideMob/RightSideMob";
-import React, { useState } from "react";
+import React from "react";
 // interface IcompEmail {
 //   to: string;
 //   subject: string ;
@@ -44,7 +44,7 @@ export default function InboxPage() {
   // const [compEmail, setCompEmail] = useState<IcompEmail[]>([]);
   return (
     // <CompEmailContext.Provider value={{ compEmail, setCompEmail }}>
-      <div className="w-full min-h-screen pl-[30px] pr-[30px] bg-[#F5F6FA]">
+      <div className="w-full min-h-screen sm:pl-[30px] sm:pr-[30px] bg-[#F5F6FA]">
         <RightSide/>
         <RightSideMob/>
       </div>

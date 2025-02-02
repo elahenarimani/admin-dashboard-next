@@ -28,7 +28,7 @@ const SentPage = ({
     <div>
       {/* {CompEmailContextX?.compEmail.map((item) => {
         return ( */}
-          <RightSideSent to={""} subject={""} content={""} id={0}            // key={item.id}
+          <RightSideSent to={""} subject={""} content={""} id={0}             // key={item.id}
             // inpvalTo={item.to}
             // inpvalSubject={item.subject}
             // inpvalContent={item.content}

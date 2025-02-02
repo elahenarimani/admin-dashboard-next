@@ -1,26 +1,18 @@
 "use client";
 import { createContext, useContext, useState } from "react";
-import InboxPage from "../inbox/page";
-import RightSideSent from "@/components/inbox/rightSideSent/RightSideSent";
 interface IcompEmail {
   to: string;
   subject: string;
   content: string;
   id: number;
 }
-
-// export const CompEmailContext = createContext<{
-//   compEmail: IcompEmail[];
-//   setCompEmail: Function;
-// } | null>(null);
-
 interface IThemeContext {
   compEmail: IcompEmail[];
-  setCompEmail:  React.Dispatch<React.SetStateAction<IcompEmail[]>>;
+  setCompEmail: React.Dispatch<React.SetStateAction<IcompEmail[]>>;
 }
 export const ThemeContext = createContext<{
   compEmail: IcompEmail[];
-  setCompEmail:  React.Dispatch<React.SetStateAction<IcompEmail[]>>;
+  setCompEmail: React.Dispatch<React.SetStateAction<IcompEmail[]>>;
 } | null>(null);
 
 export default function ThemeContextProvider({
@@ -33,7 +25,6 @@ export default function ThemeContextProvider({
   return (
     <ThemeContext.Provider value={{ compEmail, setCompEmail }}>
       {children}
-      
     </ThemeContext.Provider>
   );
 }
@@ -44,4 +35,3 @@ export const useThemeContext = () => {
   }
   return context;
 };
-

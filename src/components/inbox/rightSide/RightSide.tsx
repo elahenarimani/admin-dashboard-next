@@ -140,9 +140,9 @@ const RightSide = () => {
     }
   };
   return (
-    <div className="w-full bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[844px] rounded-[5px] pt-0 mt-0">
+    <div className="hidden sm:block w-full bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[844px] rounded-[5px] pt-0 mt-0">
       <div className="w-full h-[100px] flex justify-between items-center pr-[24px] pl-[24px]">
-        <div className="search-wrapper">
+        <div className="search-wrapper w-full">
           <SearchBox inbox={inbox} />
         </div>
         <div className="actions-wrapper">

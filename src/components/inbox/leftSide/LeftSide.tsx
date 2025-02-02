@@ -63,7 +63,7 @@ const LeftSide = () => {
     console.log(useThemeContext)
   }
   return (
-    <div className="w-1/4 bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-[24px] mt-0 pl-[25px] pr-[25px] ">
+    <div className="w-1/4 hidden sm:block bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-[24px] mt-0 pl-[25px] pr-[25px] ">
       <div
         className="bg-[#5A8DFF] w-full h-[43px] rounded-[5px] color-white flex items-center justify-center"
         onClick={toggleCompose}
