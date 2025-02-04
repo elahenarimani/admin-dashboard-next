@@ -25,12 +25,16 @@ const ActionBox = ({
   setSelectedEmails,
 }: IActionBox) => {
   const handleDelete = () => {
-    const newInbox = inbox.filter(
-      (email) => !selectedEmails.includes(email.id)
-    ); // Create a new array with unselected inbox
-    setInbox(newInbox); //selected emails are removed
+    // const newInbox = inbox.filter(
+    //   (email) => !selectedEmails.includes(email.id)
+    // );
+     // Create a new array with unselected inbox
+    setInbox(inbox.filter((email) => !selectedEmails.includes(email.id)))
+    // console.log(newInbox)
+    // setInbox(newInbox); //selected emails are removed
     setSelectedEmails([]);
   };
+  
   return (
     <div className="w-[130px] h-[40px] grid grid-cols-3  border-[2px] border-solid border-[#EFEFEF] rounded-[12px] bg-[#F5F6FA]">
       <button className="w-full  h-full flex justify-center items-center">

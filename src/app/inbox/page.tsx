@@ -28,7 +28,7 @@
 
 import LeftSide from "@/components/inbox/leftSide/LeftSide";
 import RightSide from "@/components/inbox/rightSide/RightSide";
-import RightSideMob from "@/components/inbox/rightSideMob/RightSideMob";
+
 import React from "react";
 // interface IcompEmail {
 //   to: string;
@@ -46,7 +46,7 @@ export default function InboxPage() {
     // <CompEmailContext.Provider value={{ compEmail, setCompEmail }}>
       <div className="w-full min-h-screen sm:pl-[30px] sm:pr-[30px] bg-[#F5F6FA]">
         <RightSide/>
-        <RightSideMob/>
+        {/* <RightSideMob/> */}
       </div>
     // </CompEmailContext.Provider>
   );

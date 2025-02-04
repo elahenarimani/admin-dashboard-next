@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import SearchBox from "./searchBox/SearchBox";
 import ActionBox from "./actionBox/ActionBox";
-import "./rightSide.css"
+import "./rightSide.css";
+import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
 interface IInbox {
   id: number;
   from: string;
@@ -14,7 +15,7 @@ interface IInbox {
   label: string;
 }
 const RightSide = () => {
-  const [selectedEmails, setSelectedEmails] = useState<number[]>([]);
+  const [selectedEmails, setSelectedEmails] = useState<number[]>([]); //Just get the ID for deleting the email
   const [inbox, setInbox] = useState<IInbox[]>([
     {
       id: 1,
@@ -133,19 +134,18 @@ const RightSide = () => {
     return message;
   };
   const handleCheckboxChange = (emailId: number) => {
-    if (selectedEmails.includes(emailId)) {
-      setSelectedEmails(selectedEmails.filter((id) => id !== emailId)); //remove from selectedEmails
-    } else {
-      setSelectedEmails([...selectedEmails, emailId]); //add to selectedEmails
-    }
+    // if (selectedEmails.includes(emailId)) {
+    //   setSelectedEmails(selectedEmails.filter((id) => id !== emailId)); //remove from selectedEmails
+    // } else {
+    //   setSelectedEmails([...selectedEmails, emailId]); //add to selectedEmails
+    // }
+    setSelectedEmails([...selectedEmails, emailId]);
   };
   return (
-    <div className="hidden sm:block w-full bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[844px] rounded-[5px] pt-0 mt-0">
-      <div className="w-full h-[100px] flex justify-between items-center pr-[24px] pl-[24px]">
-        <div className="search-wrapper w-full">
-          <SearchBox inbox={inbox} />
-        </div>
-        <div className="actions-wrapper">
+    <div>
+      <div className="mobile inbox-wrapper block sm:hidden w-full h-full pl-[32px] pr-[32px] pt-[15px]">
+        <SearchBoxMob inbox={inbox} />
+        <div className="actions-wrapper flex justify-end pt-[10px]">
           <ActionBox
             inbox={inbox}
             setInbox={setInbox}
@@ -153,55 +153,127 @@ const RightSide = () => {
             setSelectedEmails={setSelectedEmails}
           />
         </div>
+        {inbox.map((item) => {
+          return (
+            <div
+              className="w-full h-[100px] flex flex-col justify-between items-start border-b-2 border-gray-300 pt-[15px] pb-[15px]"
+              key={item.id}
+            >
+              <div className="w-full flex flex-col justify-between gap-[20px]">
+                <div className="w-full flex flex-row justify-between items-start gap-[40px]">
+                  <div>{item.timestamp}</div>
+                  <div className="truncate">{item.from}</div>
+                </div>
+                <div className="w-full flex flex-row justify-between gap-[40px]">
+                  <div className="w-[48px]  text-right">
+                    <input
+                      aria-label="search"
+                      type="checkbox"
+                      id={`${item.id}`}
+                      onClick={() => handleCheckboxChange(item.id)}
+                      className="w-[16px] h-[16px]"
+                    />
+                  </div>
+                  <div className="truncate">{item.message}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
-      {inbox.map((item) => {
-        return (
-          <div
-            key={item.id}
-            className='message w-full h-[62px] border-b-[1px] border-solid border-"#EFEFEF" flex justify-start items-center'
-          >
-            <div className="w-[48px]  flex justify-center items-center">
-              <input
-                aria-label="search"
-                type="checkbox"
-                id={`${item.id}`}
-                onClick={() => handleCheckboxChange(item.id)}
-                className="w-[16px] h-[16px]"
-              />
+      <div className="inbox-wrapper block sm:hidden w-full h-full pl-[32px] pr-[32px] pt-[15px]">
+        <SearchBoxMob inbox={inbox} />
+        {inbox.map((item) => {
+          return (
+            <div
+              className="w-full h-[100px] flex flex-col justify-between items-start border-b-2 border-gray-300 pt-[15px] pb-[15px]"
+              key={item.id}
+            >
+              <div className="w-full flex flex-col justify-between gap-[20px]">
+                <div className="w-full flex flex-row justify-between items-start gap-[40px]">
+                  <div>{item.timestamp}</div>
+                  <div className="truncate">{item.from}</div>
+                </div>
+                <div className="w-full flex flex-row justify-between gap-[40px]">
+                  <div className="w-[48px]  text-right">
+                    <input
+                      aria-label="search"
+                      type="checkbox"
+                      id={`${item.id}`}
+                      onClick={() => handleCheckboxChange(item.id)}
+                      className="w-[16px] h-[16px]"
+                    />
+                  </div>
+                  <div className="truncate">{item.message}</div>
+                </div>
+              </div>
             </div>
-            <div className='w-[48px]  flex justify-center items-center text-"#EFEFEF" '>
-              <CiStar className="w-[20px] h-[20px]" />
-            </div>
-            <div className="w-[100px] flex justify-start items-center text-[14px]">
-              {" "}
-              <p className="truncate">{item.subject}</p>
-            </div>
-            <div className="w-[100px] flex justify-center items-center text-[14px] ">
-              <p
-                className={`w-[60px] h-[22px] text-center pt-[2px] ${
-                  item.label === "primary"
-                    ? "bg-[#CCF0EB]"
-                    : item.label === "work"
-                    ? "bg-[#FFEBDD]"
-                    : item.label === "friends"
-                    ? "bg-[#F6DDFF]"
-                    : item.label === "social"
-                    ? "bg-[#DEE8FF]"
-                    : "bg-transparent"
-                }`}
-              >
-                {item.label}
-              </p>
-            </div>
-            <div className="w-[400px]">
-              <p className="truncate">{shortMessage(item.message, 35)}</p>{" "}
-            </div>
-            <div className="w-[54px] h-[19px]">
-              <p>{item.timestamp}</p>
-            </div>
+          );
+        })}
+      </div>
+      <div className="hidden sm:block w-full bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[844px] rounded-[5px] pt-0 mt-0">
+        <div className="w-full h-[100px] flex justify-between items-center pr-[24px] pl-[24px]">
+          <div className="search-wrapper w-full">
+            <SearchBox inbox={inbox} />
           </div>
-        );
-      })}
+          <div className="actions-wrapper">
+            <ActionBox
+              inbox={inbox}
+              setInbox={setInbox}
+              selectedEmails={selectedEmails}
+              setSelectedEmails={setSelectedEmails}
+            />
+          </div>
+        </div>
+        {inbox.map((item) => {
+          return (
+            <div
+              key={item.id}
+              className='message w-full h-[62px] border-b-[1px] border-solid border-"#EFEFEF" flex justify-start items-center'
+            >
+              <div className="w-[48px]  flex justify-center items-center">
+                <input
+                  aria-label="search"
+                  type="checkbox"
+                  id={`${item.id}`}
+                  onClick={() => handleCheckboxChange(item.id)}
+                  className="w-[16px] h-[16px]"
+                />
+              </div>
+              <div className='w-[48px]  flex justify-center items-center text-"#EFEFEF" '>
+                <CiStar className="w-[20px] h-[20px]" />
+              </div>
+              <div className="w-[100px] flex justify-start items-center text-[14px]">
+                {" "}
+                <p className="truncate">{item.subject}</p>
+              </div>
+              <div className="w-[100px] flex justify-center items-center text-[14px] ">
+                <p
+                  className={`w-[60px] h-[22px] text-center pt-[2px] ${
+                    item.label === "primary"
+                      ? "bg-[#CCF0EB]"
+                      : item.label === "work"
+                      ? "bg-[#FFEBDD]"
+                      : item.label === "friends"
+                      ? "bg-[#F6DDFF]"
+                      : item.label === "social"
+                      ? "bg-[#DEE8FF]"
+                      : "bg-transparent"
+                  }`}
+                >
+                  {item.label}
+                </p>
+              </div>
+              <div className="w-[400px]">
+                <p className="truncate">{shortMessage(item.message, 35)}</p>{" "}
+              </div>
+              <div className="w-[54px] h-[19px]">
+                <p>{item.timestamp}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

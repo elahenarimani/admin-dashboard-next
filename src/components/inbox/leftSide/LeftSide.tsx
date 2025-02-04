@@ -28,9 +28,7 @@ interface IcompEmail {
 const LeftSide = () => {
   // const CompEmailContextX = useContext(CompEmailContext);
   // const {compEmail, setCompEmail}  = useContext(ThemeContext)
- 
  const { compEmail , setCompEmail} = useThemeContext()
- 
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const [inpvalTo, setInpvalTo] = useState<string>("");
   const [inpvalSubject, setInpvalSubject] = useState<string>("");
