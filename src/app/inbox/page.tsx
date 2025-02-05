@@ -26,8 +26,8 @@
 
 
 
-import LeftSide from "@/components/inbox/leftSide/LeftSide";
-import RightSide from "@/components/inbox/rightSide/RightSide";
+import LeftSide from "@/components/mainInbox/leftSide/LeftSide";
+import RightSide from "@/components/mainInbox/rightSide/RightSide";
 
 import React from "react";
 // interface IcompEmail {

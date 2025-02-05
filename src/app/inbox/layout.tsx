@@ -1,7 +1,5 @@
 
-import LeftSide from "../../components/inbox/leftSide/LeftSide";
-import RightSide from "@/components/inbox/rightSide/RightSide";
-import SearchBoxMob from "@/components/inbox/rightSideMob/searchBoxMob/SearchBoxMob";
+import LeftSide from "../../components/mainInbox/leftSide/LeftSide";
 import React from "react";
 interface Iprops {
   children: React.ReactNode;

@@ -139,7 +139,7 @@ const RightSide = () => {
     // } else {
     //   setSelectedEmails([...selectedEmails, emailId]); //add to selectedEmails
     // }
-    setSelectedEmails([...selectedEmails, emailId]);
+    // setSelectedEmails([...selectedEmails, emailId]);
   };
   return (
     <div>
@@ -170,7 +170,7 @@ const RightSide = () => {
                       aria-label="search"
                       type="checkbox"
                       id={`${item.id}`}
-                      onClick={() => handleCheckboxChange(item.id)}
+                      onClick={() => setSelectedEmails([...selectedEmails, item.id])}
                       className="w-[16px] h-[16px]"
                     />
                   </div>
@@ -181,7 +181,7 @@ const RightSide = () => {
           );
         })}
       </div>
-      <div className="inbox-wrapper block sm:hidden w-full h-full pl-[32px] pr-[32px] pt-[15px]">
+      {/* <div className="inbox-wrapper block sm:hidden w-full h-full pl-[32px] pr-[32px] pt-[15px]">
         <SearchBoxMob inbox={inbox} />
         {inbox.map((item) => {
           return (
@@ -210,7 +210,7 @@ const RightSide = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
       <div className="hidden sm:block w-full bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[844px] rounded-[5px] pt-0 mt-0">
         <div className="w-full h-[100px] flex justify-between items-center pr-[24px] pl-[24px]">
           <div className="search-wrapper w-full">
@@ -236,7 +236,7 @@ const RightSide = () => {
                   aria-label="search"
                   type="checkbox"
                   id={`${item.id}`}
-                  onClick={() => handleCheckboxChange(item.id)}
+                  onClick={() => setSelectedEmails([...selectedEmails, item.id])}
                   className="w-[16px] h-[16px]"
                 />
               </div>

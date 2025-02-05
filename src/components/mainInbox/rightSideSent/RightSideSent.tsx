@@ -2,8 +2,8 @@
 import React, { useContext, useState } from "react";
 import { CiStar } from "react-icons/ci";
 // import SearchBoxSent from "../../../components/inbox/rightSideSent/SearchBoxSent/SearchBoxSent";
-import SearchBoxSent from "../../../components/inbox/rightSideSent/SearchBoxSent/SearchBoxSent";
-import ActionBoxSent from "../../../components/inbox/rightSideSent/actionBox/ActionBoxSent";
+import SearchBoxSent from "../../../components/mainInbox/rightSideSent/SearchBoxSent/SearchBoxSent";
+import ActionBoxSent from "../../../components/mainInbox/rightSideSent/actionBox/ActionBoxSent";
 import { useThemeContext } from "@/app/theme-provider/Theme-provider";
 interface IcompEmail {
   to: string;

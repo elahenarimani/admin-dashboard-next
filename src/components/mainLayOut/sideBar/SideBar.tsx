@@ -12,7 +12,7 @@ const SideBar = () => {
         </Link>
       </li>
       <li className="!w-[24px] !h-[24px] ">
-        <Link href="inbox">
+        <Link href="/inbox">
           <AiFillMessage className="w-full h-full opacity-[50%] " />
         </Link>
       </li>
