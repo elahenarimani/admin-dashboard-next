@@ -8,12 +8,34 @@ import { MdTableRows } from "react-icons/md";
 import Button from "../../button/Button";
 import ModalTable from "./modalTable/ModalTable";
 const Navigation = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  let [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const openModal = () => {
     setIsModalOpen(true);
   };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  //  const modalRef = useRef(null);
+  //   useEffect(() => {
+  //     const handleClickOutside = (event: MouseEvent) => {
+  
+  //       if (!modalRef.current || modalRef.current === event.target) {
+  //         setIsModalOpen(false);
+  //       }
+  //     };
+  
+  //     if (isModalOpen) {
+      
+  //       document.addEventListener("mousedown", handleClickOutside);
+  //     }
+  
+  //     // حذف event listener بعد از unmount شدن
+  //     return () => {
+  //       document.removeEventListener("mousedown", handleClickOutside);
+  //     };
+  //   }, [isModalOpen, setIsModalOpen]);
   return (
-    <div className="w-full !overflow-x-hidden">
+    <div className="  w-full !overflow-x-hidden">
       <div className="mobile lg:hidden  h-[70px]  pl-[10px] pr-[10px] ">
         <div className="w-full h-full flex flex-row justify-between items-center overflow-hidden">
           <div className="w-[22px] h-[22px]  ">
@@ -27,9 +49,6 @@ const Navigation = () => {
               ادمین
             </p>
           </div>
-          {/* <div className="w-[18px]  h-[18px]">
-            <IoChevronDownCircleOutline className="!w-full h-full text-[#5C5C5C]" />
-          </div> */}
           <div className="w-[18px]  h-[18px] opacity-[50%]">
             <IoSearchOutline />
           </div>
@@ -45,6 +64,7 @@ const Navigation = () => {
               isModalOpen={isModalOpen}
             />
           )}
+         
         </div>
       </div>
       <div className="desktop hidden lg:flex w-full h-full justify-between items-center pr-[43px]">

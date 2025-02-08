@@ -5,6 +5,10 @@ import SearchBox from "./searchBox/SearchBox";
 import ActionBox from "./actionBox/ActionBox";
 import "./rightSide.css";
 import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
+import { TiPencil } from "react-icons/ti";
+import { LiaTimesSolid } from "react-icons/lia";
+import Input from "../../input/Input";
+import { useThemeContext } from "@/app/theme-provider/Theme-provider";
 interface IInbox {
   id: number;
   from: string;
@@ -15,7 +19,12 @@ interface IInbox {
   label: string;
 }
 const RightSide = () => {
+  const { compEmail, setCompEmail } = useThemeContext();
   const [selectedEmails, setSelectedEmails] = useState<number[]>([]); //Just get the ID for deleting the email
+  const [isOpenComp , setIsOpenComp] = useState<Boolean>(false);
+  const [inpvalTo, setInpvalTo] = useState<string>("");
+  const [inpvalSubject, setInpvalSubject] = useState<string>("");
+  const [inpvalContent, setInpvalContent] = useState<string>("");
   const [inbox, setInbox] = useState<IInbox[]>([
     {
       id: 1,
@@ -127,24 +136,116 @@ const RightSide = () => {
       label: "social",
     },
   ]);
+
   const shortMessage = (message: string, maxLength: number) => {
     if (message.length > maxLength) {
       return message.slice(0, maxLength) + "...";
     }
     return message;
   };
-  const handleCheckboxChange = (emailId: number) => {
-    // if (selectedEmails.includes(emailId)) {
-    //   setSelectedEmails(selectedEmails.filter((id) => id !== emailId)); //remove from selectedEmails
-    // } else {
-    //   setSelectedEmails([...selectedEmails, emailId]); //add to selectedEmails
-    // }
-    // setSelectedEmails([...selectedEmails, emailId]);
-  };
+
+  const toggleCompose = () => setIsOpenComp(!isOpenComp);
+  function sentBox() {
+    console.log(inpvalTo);
+    setCompEmail([
+      ...compEmail,
+      {
+        to: inpvalTo,
+        subject: inpvalSubject,
+        content: inpvalContent,
+        id: Date.now(),
+      },
+    ]);
+
+    setIsOpenComp(false);
+    setInpvalTo("");
+    setInpvalSubject("");
+    setInpvalContent("");
+  }
+  {
+    console.log(compEmail);
+    console.log(inpvalTo);
+    console.log(inpvalSubject);
+    console.log(inpvalContent);
+    console.log(useThemeContext);
+  }
   return (
     <div>
       <div className="mobile inbox-wrapper block sm:hidden w-full h-full pl-[32px] pr-[32px] pt-[15px]">
+        <div className="compose-wrapper-mob w-full h-full  z-2147483647  ">
+          {isOpenComp && (
+            <div className="compose-mob top-[70px]  fixed  bg-white rounded-t-[10px] flex flex-col justify-start items-start">
+              <div className="w-full h-[40px] bg-[#F2F6FC] flex justify-between items-center pl-[15px] pr-[15px] rounded-t-[10px]">
+                <p>پیام جدید</p>
+                <div
+                  className="w-[20px] h-[20px] cursor-pointer"
+                  onClick={toggleCompose}
+                >
+                  <LiaTimesSolid className="w-full h-full text-[#6E7172]" />
+                </div>
+              </div>
+              <div className="to w-full h-[40px] pl-[15px] pr-[15px]">
+                <div className="w-full h-full border-b[#F2F6FC] border-solid border-b-[1px] flex flex-row justify-start items-center ">
+                  <p className="text-[#B5B7B6]">گیرنده</p>
+                  <div className="flex-grow pl-[10px]">
+                    <Input
+                      value={inpvalTo}
+                      inputHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        setInpvalTo(e.target.value)
+                      }
+                      className="input-comp w-full h-full  pr-[10px] pl-[10px]  outline-none border-none  "
+                      placeholder=""
+                      ariaLabel="گیرنده"
+                      type="email"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="subject w-full h-[40px] pl-[15px] pr-[15px]">
+                <div className="w-full h-full border-b[#F2F6FC] border-solid border-b-[1px] flex justify-start items-center ">
+                  <p className=" text-[#B5B7B6]">موضوع</p>
+                  <div className="flex-grow pl-[10px]">
+                    {/*to item stretch*/}
+                    <Input
+                      value={inpvalSubject}
+                      inputHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        setInpvalSubject(e.target.value)
+                      }
+                      className="w-full h-full pr-[10px] pl-[10px] outline-none border-none "
+                      placeholder=""
+                      ariaLabel="موضوع"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="content w-full min-h-[430px] pl-[15px] pr-[15px]">
+                <textarea
+                  value={inpvalContent}
+                  onChange={(e: any) => setInpvalContent(e.target.value)}
+                  className="w-full h-full    outline-none border-none resize-none"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div className="w-full h-[40px] flex flex-row justify-end pl-[10px]">
+                <div
+                  className="w-[100px] h-[40px]  bg-[#1B61D1] text-white text-center rounded-[30px] flex justify-center items-center cursor-pointer"
+                  onClick={sentBox}
+                >
+                  <p>ارسال</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        {/* {isOpenComp ? 
+          (<SearchBoxMob inbox={inbox} className="z-0" />)
+        : (<SearchBoxMob inbox={inbox} />)} */}
+        <div className="search-wrapper w-full z-0">
         <SearchBoxMob inbox={inbox} />
+        </div>
+        
         <div className="actions-wrapper flex justify-end pt-[10px]">
           <ActionBox
             inbox={inbox}
@@ -170,7 +271,9 @@ const RightSide = () => {
                       aria-label="search"
                       type="checkbox"
                       id={`${item.id}`}
-                      onClick={() => setSelectedEmails([...selectedEmails, item.id])}
+                      onClick={() =>
+                        setSelectedEmails([...selectedEmails, item.id])
+                      }
                       className="w-[16px] h-[16px]"
                     />
                   </div>
@@ -180,6 +283,17 @@ const RightSide = () => {
             </div>
           );
         })}
+        {isOpenComp ? (
+          <div className="fixed-compose hidden"></div>
+        ) : (
+          <div
+            className="fixed-compose w-[100px] h-[43px]  fixed bottom-[10px] right-[15px] flex justify-center items-center bg-[#74C0FC]  rounded-[15px] gap-[5px] pointer"
+            onClick={toggleCompose}
+          >
+            <TiPencil className="w-[20px] h-[20px]" />
+            <p>نوشتن</p>
+          </div>
+        )}
       </div>
       {/* <div className="inbox-wrapper block sm:hidden w-full h-full pl-[32px] pr-[32px] pt-[15px]">
         <SearchBoxMob inbox={inbox} />
@@ -236,7 +350,9 @@ const RightSide = () => {
                   aria-label="search"
                   type="checkbox"
                   id={`${item.id}`}
-                  onClick={() => setSelectedEmails([...selectedEmails, item.id])}
+                  onClick={() =>
+                    setSelectedEmails([...selectedEmails, item.id])
+                  }
                   className="w-[16px] h-[16px]"
                 />
               </div>

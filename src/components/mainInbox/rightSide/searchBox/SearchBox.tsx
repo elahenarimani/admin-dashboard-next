@@ -16,6 +16,7 @@ interface IInbox {
 }
 interface ISearchBox {
   inbox: IInbox[];
+  
 }
 const SearchBox = ({ inbox }: ISearchBox) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -53,7 +54,7 @@ const SearchBox = ({ inbox }: ISearchBox) => {
       border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF", // Your favorite border color when focused
       boxShadow: "none", // Remove default box-shadow (which may include blue border)
       borderRadius: state.menuIsOpen ? "12px 12px 0 0" : "30px", // Remove bottom border-radius when menu is open
-      zIndex: 0, // Adjust z-index for the input specifically
+      //zIndex: 0, // Adjust z-index for the input specifically
       "&:hover": {
         border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF",
       },
@@ -104,6 +105,7 @@ const SearchBox = ({ inbox }: ISearchBox) => {
         onFocus={() => setMenuIsOpen(true)}//Toggles the dropdown menu’s visibility on focus and blur, using
         onBlur={() => setMenuIsOpen(false)}//Toggles the dropdown menu’s visibility on focus and blur, using
         menuIsOpen={menuIsOpen}//Controls whether the dropdown is open based on the component’s focus state.
+       
       />
     </div>
   );
