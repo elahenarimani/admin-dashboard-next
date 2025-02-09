@@ -171,7 +171,7 @@ const RightSide = () => {
   }
   return (
     <div>
-      <div className="mobile inbox-wrapper block sm:hidden w-full h-full pl-[32px] pr-[32px] pt-[15px]">
+      <div className="mobile inbox-wrapper block sm:hidden w-full h-full  pt-[15px]">
         <div className="compose-wrapper-mob w-full h-full  z-2147483647  ">
           {isOpenComp && (
             <div className="compose-mob top-[70px]  fixed  bg-white rounded-t-[10px] flex flex-col justify-start items-start">
@@ -242,11 +242,11 @@ const RightSide = () => {
         {/* {isOpenComp ? 
           (<SearchBoxMob inbox={inbox} className="z-0" />)
         : (<SearchBoxMob inbox={inbox} />)} */}
-        <div className="search-wrapper w-full z-0">
+        <div className="search-wrapper w-full z-0 pl-[32px] pr-[32px]">
         <SearchBoxMob inbox={inbox} />
         </div>
         
-        <div className="actions-wrapper flex justify-end pt-[10px]">
+        <div className="actions-wrapper flex justify-end pt-[10px] pl-[32px] pr-[32px]">
           <ActionBox
             inbox={inbox}
             setInbox={setInbox}
@@ -257,10 +257,10 @@ const RightSide = () => {
         {inbox.map((item) => {
           return (
             <div
-              className="w-full h-[100px] flex flex-col justify-between items-start border-b-2 border-gray-300 pt-[15px] pb-[15px]"
+              className="w-full h-[100px] flex flex-col justify-between items-start  pt-[15px] pb-[15px] pl-[32px] pr-[32px]"
               key={item.id}
             >
-              <div className="w-full flex flex-col justify-between gap-[20px]">
+              <div className="w-full flex flex-col justify-between gap-[20px] border-b-2 border-gray-300">
                 <div className="w-full flex flex-row justify-between items-start gap-[40px]">
                   <div>{item.timestamp}</div>
                   <div className="truncate">{item.from}</div>

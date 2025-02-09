@@ -11,7 +11,8 @@ const ModalTable = ({ setIsModalOpen, isModalOpen }: IModalTable) => {
   const modalRef = useRef<any>(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {//if ckick on mose out of modal & not click in navigation table
+        
         setIsModalOpen(false);
       }
     };
@@ -45,4 +46,5 @@ const ModalTable = ({ setIsModalOpen, isModalOpen }: IModalTable) => {
     </div>
   );
 };
+
 export default ModalTable;

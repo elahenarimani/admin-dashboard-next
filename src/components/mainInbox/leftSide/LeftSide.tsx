@@ -96,9 +96,7 @@ const LeftSide = () => {
             <div>
               <p className="text-[14px] text-[##202224]">211313</p>
             </div>
-          
         </div>
-
         <div className="starred w-full h-[43px]  flex flex-row justify-between items-center pr-[16px] pt-[8px] pb-[8px]">
           <div className="flex justify-between items-center gap-[12px]">
             <div className="w-[16px] h-[16px]">

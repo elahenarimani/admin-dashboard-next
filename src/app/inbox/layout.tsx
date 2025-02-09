@@ -7,7 +7,7 @@ interface Iprops {
 export default function InboxLayout({ children }: Iprops) {
   return (
     <div>
-      <div className="inbox w-full min-h-screen sm:pl-[30px] sm:pr-[30px] bg-[#F5F6FA]">
+      <div className="inbox w-full min-h-screen  bg-[#F5F6FA]">
         <p className="hidden sm:block text-[32px] mt-[30px] mb-[23px]">
           صندوق ورودی
         </p>

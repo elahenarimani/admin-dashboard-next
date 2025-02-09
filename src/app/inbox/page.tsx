@@ -44,7 +44,7 @@ export default function InboxPage() {
   // const [compEmail, setCompEmail] = useState<IcompEmail[]>([]);
   return (
     // <CompEmailContext.Provider value={{ compEmail, setCompEmail }}>
-      <div className="w-full min-h-screen sm:pl-[30px] sm:pr-[30px] bg-[#F5F6FA]">
+      <div className="w-full min-h-screen  bg-[#F5F6FA]">
         <RightSide/>
         {/* <RightSideMob/> */}
       </div>
