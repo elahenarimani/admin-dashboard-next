@@ -3,8 +3,9 @@ import { FaTrash } from "react-icons/fa6";
 import { IoMdArchive } from "react-icons/io";
 import { BiSolidEnvelopeOpen } from "react-icons/bi";
 import Button from "../../../button/Button";
+import { CompContext } from "@/app/CompProvider";
 // import {CompEmailContext}from "../../../../app/inbox/page"
-import { useThemeContext } from "@/app/theme-provider/Theme-provider";
+// import { useThemeContext } from "@/app/theme-provider/ThemeContextProvider";
 interface IcompEmail {
   to: string ;
   subject: string ;
@@ -20,13 +21,14 @@ const ActionBoxSent = ({
   selectedEmails,
   setSelectedEmails,
 }: IActionBox) => {
-  const { compEmail , setCompEmail} = useThemeContext()
+   const Compose = useContext(CompContext)
+  // const { compEmail , setCompEmail} = useThemeContext()
   // const CompEmailContextX = useContext(CompEmailContext)
   const handleDelete = () => {
-    const newInbox = compEmail.filter(
+    const newInbox = Compose?.compEmail.filter(
       (email) => !selectedEmails.includes(email.id)
     ); // Create a new array with unselected inbox
-    setCompEmail(newInbox); //selected emails are removed
+    Compose?.setCompEmail(newInbox); //selected emails are removed
     setSelectedEmails([]);
   };
   return (

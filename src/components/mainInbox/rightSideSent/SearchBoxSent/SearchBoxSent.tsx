@@ -5,7 +5,9 @@ import { components } from "react-select";
 import { IoSearch } from "react-icons/io5";
 import "./searchBoxSent.css";
 import { BorderRight, BorderRightOutlined } from "@mui/icons-material";
-import { useThemeContext } from "@/app/theme-provider/theme-provider";
+import { CompContext } from "@/app/CompProvider";
+// import { useThemeContext } from "@/app/theme-provider/ThemeContextProvider";
+
 // import {CompEmailContext}from "../../../../app/inbox/page"
 interface IcompEmail {
   to: string ;
@@ -17,11 +19,12 @@ interface IcompEmail {
 //   inbox: IInbox[];
 // }
 const SearchBoxSent = () => {
-  const { compEmail , setCompEmail} = useThemeContext()
+  // const { compEmail , setCompEmail} = useThemeContext()
+   const Compose = useContext(CompContext)
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   // const CompEmailContextX = useContext(CompEmailContext)
   const filterEmail = (inputValue: string) => {
-    return compEmail.filter(
+    return Compose?.compEmail?.filter(
       (item) =>
         item.subject.includes(inputValue) ||
         item.content.includes(inputValue) ||

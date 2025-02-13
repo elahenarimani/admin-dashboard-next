@@ -7,6 +7,7 @@ import { PiTableFill } from "react-icons/pi";
 import { components } from "react-select";
 import "./searchBoxMob.css";
 import ModalMenuMob from "./menuMob/ModalMenuMob ";
+// import { useThemeContext } from "@/app/theme-provider/ThemeContextProvider";
 interface IInbox {
   id: number;
   from: string;
@@ -21,6 +22,7 @@ interface ISearchBox {
   className?: string;
 }
 const SearchBoxMob = ({ inbox }: ISearchBox) => {
+  // const { compEmail, setCompEmail } = useThemeContext();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [openMenoMob, setOpenMenoMob] = useState(false);
   const filterEmail = (inputValue: string) => {

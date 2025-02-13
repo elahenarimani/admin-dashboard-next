@@ -27,6 +27,7 @@ const SentPage = ({
           <RightSideSent to={""} subject={""} content={""} id={0}             // key={item.id}
           
           />
+          
        
     </div>
   );

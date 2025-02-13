@@ -12,9 +12,11 @@ import Link from "next/link";
 import Input from "../../input/Input";
 import "./leftSide.css";
 import SentPage from "@/app/inbox/[sent]/page";
-import { useThemeContext } from "@/app/theme-provider/Theme-provider";
+// import { useThemeContext } from "@/app/theme-provider/Theme-provider";
 import RightSideSent from "../rightSideSent/RightSideSent";
 import { useRouter } from "next/router";
+// import { useThemeContext } from "@/app/theme-provider/ThemeContextProvider";
+import { CompContext } from "@/app/CompProvider";
 interface IcompEmail {
   to: string;
   subject: string;
@@ -29,7 +31,8 @@ interface IcompEmail {
 const LeftSide = () => {
   // const CompEmailContextX = useContext(CompEmailContext);
   // const {compEmail, setCompEmail}  = useContext(ThemeContext)
-  const {compEmail, setCompEmail } = useThemeContext();
+  const Compose = useContext(CompContext)
+  // const {compEmail, setCompEmail } = useThemeContext();
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const [inpvalTo, setInpvalTo] = useState<string>("");
   const [inpvalSubject, setInpvalSubject] = useState<string>("");
@@ -47,8 +50,8 @@ const LeftSide = () => {
   // }
   function sentBox() {
     console.log(inpvalTo);
-    setCompEmail([
-      ...compEmail,
+    Compose?.setCompEmail([
+      ...Compose?.compEmail,
       {
         to: inpvalTo,
         subject: inpvalSubject,
@@ -63,17 +66,17 @@ const LeftSide = () => {
     setInpvalContent("");
   }
   {
-    console.log(compEmail);
+    console.log(Compose?.compEmail);
     console.log(inpvalTo);
     console.log(inpvalSubject);
     console.log(inpvalContent);
-    console.log(useThemeContext);
+    // console.log(useThemeContext);
   }
   return (
-    <div className="w-1/4 hidden sm:block bg-white border-[0.3px] border-solid border-[#B9B9B9] h-[840px] rounded-[5px] pt-[24px] mt-0 pl-[25px] pr-[25px] ">
+    <div className="w-1/4 hidden sm:block bg-white border-[0.3px] border-solid border-[#B9B9B9] min-h-screen  rounded-[5px] pt-[24px] mt-0 pl-[25px] pr-[25px] ">
       <div
         className="bg-[#5A8DFF] w-full h-[43px] rounded-[5px] color-white flex items-center justify-center"
-        onClick={toggleCompose}
+        onClick={()=>toggleCompose()}
       >
         <p className="text-white ">نوشتن</p>
       </div>
@@ -202,7 +205,6 @@ const LeftSide = () => {
                     className="input-comp w-full h-full  pr-[10px] pl-[10px]  outline-none border-none  "
                     placeholder=""
                     ariaLabel="گیرنده"
-                    type="email"
                   />
                 </div>
               </div>
@@ -220,7 +222,6 @@ const LeftSide = () => {
                     className="w-full h-full pr-[10px] pl-[10px] outline-none border-none "
                     placeholder=""
                     ariaLabel="موضوع"
-                    type="text"
                   />
                 </div>
               </div>
@@ -251,7 +252,6 @@ const LeftSide = () => {
             to={inpvalTo}
             subject={inpvalSubject}
             content={inpvalContent}
-            
           /> */}
       {/* );
       })} */}

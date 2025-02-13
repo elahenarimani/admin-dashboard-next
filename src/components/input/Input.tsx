@@ -1,10 +1,10 @@
-import React from "react";
+import { CompContext } from "@/app/CompProvider";
+import React, { ChangeEventHandler, useContext } from "react";
 interface IInput {
   value: string | number;
-  inputHandler: Function;
+  inputHandler: ChangeEventHandler<HTMLInputElement>;
   className: string;
   placeholder: string;
-  type: string|number;
   ariaLabel:string;
 }
 const Input = ({
@@ -12,19 +12,19 @@ const Input = ({
   inputHandler,
   className,
   placeholder,
-  type,
   ariaLabel,
 }: IInput) => {
+  const Compose = useContext(CompContext);
   return (
     <div>
       <input
         value={value}
-        onChange={ (e:React.ChangeEvent<HTMLInputElement>) => inputHandler(e)}
+        onChange={inputHandler}
         placeholder={placeholder}
         className={className}
         aria-label={ariaLabel}
-        type={type}
-      ></input>
+        
+      />
     </div>
   );
 };

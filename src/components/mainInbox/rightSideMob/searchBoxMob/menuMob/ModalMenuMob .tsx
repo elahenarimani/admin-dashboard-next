@@ -1,6 +1,7 @@
-import { useThemeContext } from "@/app/theme-provider/Theme-provider";
+import { CompContext } from "@/app/CompProvider";
+// import { useThemeContext } from "@/app/theme-provider/ThemeContextProvider";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { BsExclamationTriangle } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
@@ -13,10 +14,12 @@ interface IModalMenoMob {
   setOpenMenoMob: Function;
 }
 const ModalMenuMob = ({ openMenoMob, setOpenMenoMob }: IModalMenoMob) => {
-  const { compEmail, setCompEmail } = useThemeContext();
-  const [inpvalTo, setInpvalTo] = useState<string>("");
-  const [inpvalSubject, setInpvalSubject] = useState<string>("");
-  const [inpvalContent, setInpvalContent] = useState<string>("");
+  const Compose = useContext(CompContext)
+  // const { compEmail, setCompEmail } = useThemeContext();
+  // const { compEmail, setCompEmail } = useThemeContext();
+  // const [inpvalTo, setInpvalTo] = useState<string>("");
+  // const [inpvalSubject, setInpvalSubject] = useState<string>("");
+  // const [inpvalContent, setInpvalContent] = useState<string>("");
   const modalRef = useRef<any>(null);
   useEffect(() => {//close modal
     const handleClickOutside = (event: MouseEvent) => {
@@ -32,28 +35,6 @@ const ModalMenuMob = ({ openMenoMob, setOpenMenoMob }: IModalMenoMob) => {
       window.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openMenoMob, setOpenMenoMob]);
-  function sentBox() {
-    console.log(inpvalTo);
-    setCompEmail([
-      ...compEmail,
-      {
-        to: inpvalTo,
-        subject: inpvalSubject,
-        content: inpvalContent,
-        id: Date.now(),
-      },
-    ]);
-    setInpvalTo("");
-    setInpvalSubject("");
-    setInpvalContent("");
-  }
-  {
-    console.log(compEmail);
-    console.log(inpvalTo);
-    console.log(inpvalSubject);
-    console.log(inpvalContent);
-    console.log(useThemeContext);
-  }
   return (
     <div className="modal-wrapper w-full h-full fixed top-0 left-0 bg-opacity-50 flex justify-end  z-100">
       <div
@@ -98,7 +79,6 @@ const ModalMenuMob = ({ openMenoMob, setOpenMenoMob }: IModalMenoMob) => {
             </div>
             <div
               className="sent w-full h-[43px]  flex flex-row justify-between items-center pr-[16px] pt-[8px] pb-[8px]"
-              onClick={sentBox}
             >
               <Link href="/inbox/sent">
                 <div className="flex justify-between items-center gap-[12px]">

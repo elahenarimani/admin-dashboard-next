@@ -4,7 +4,9 @@ import "./globals.css";
 import ProductPage from "./product/layout";
 import Navigation from "@/components/mainLayOut/navigation/Navigation";
 import SideBar from "@/components/mainLayOut/sideBar/SideBar";
-import ThemeContextProvider from "./theme-provider/Theme-provider";
+// import ThemeContextProvider from "./theme-provider/ThemeContextProvider";
+// import CompMailProvider from "./theme-provider/ThemeContextProvider";
+import CompProvider from "./CompProvider";
 const vazir = Vazirmatn({ subsets: ["arabic", "latin"] });
 // import ThemeProvider from "./theme-provider/theme-provider";
 export const metadata: Metadata = {
@@ -40,7 +42,8 @@ export default function RootLayout({
               <SideBar />
             </div>
             <main className="w-full h-full  col-start-1 col-end-2  row-start-2 row-end-[-1] bg-[#F5F6FA]  pl-[30px] pr-[30px]">
-              <ThemeContextProvider>{children}</ThemeContextProvider>
+              <CompProvider>{children}</CompProvider>
+              {/* <CompProvider><ThemeContextProvider>{children}</ThemeContextProvider></CompProvider> */}
             </main>
           </div>
         </div>
