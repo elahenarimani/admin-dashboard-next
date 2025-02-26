@@ -23,12 +23,8 @@ const SentPage = ({
 
   return (
     <div>
-     
-          <RightSideSent to={""} subject={""} content={""} id={0}             // key={item.id}
-          
+          <RightSideSent            // key={item.id}
           />
-          
-       
     </div>
   );
 };

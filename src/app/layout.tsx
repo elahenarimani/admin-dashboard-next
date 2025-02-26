@@ -20,34 +20,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={vazir.className}>
-        <div className="mobile block lg:hidden w-full ">
-          <div className="w-full h-full flex flex-col justify-between items-center  ">
-            <div className="navigation w-full h-[70px] bg-white ">
-              <Navigation />
+      <CompProvider>
+        <body className={vazir.className}>
+          <div className="mobile block lg:hidden w-full ">
+            <div className="w-full h-full flex flex-col justify-between items-center  ">
+              <div className="navigation w-full h-[70px] bg-white ">
+                <Navigation />
+              </div>
+              <div className="w-full  sm:w-full h-full bg-[#F5F6FA]">
+                <main className=" sm:w-full h-full sm:pl-[30px] sm:pr-[30px] bg-[#F5F6FA]">
+                  {children}
+                </main>
+              </div>
             </div>
-            <div className="w-full  sm:w-full h-full bg-[#F5F6FA]">
-              <main className=" sm:w-full h-full sm:pl-[30px] sm:pr-[30px] bg-[#F5F6FA]">
+          </div>
+          <div className="desktop w-full h-full hidden lg:block">
+            <div className=" w-full h-full grid  grid-cols-[95.6%_4.4%] grid-rows-[70px_1fr] bg-white justify-between items-center  ml-auto gap-x-0">
+              <div className="navigation w-full  col-start-1 col-end-2  row-start-1 row-end-2 !h-[70px] pl-[84px] border-[3px] border-solid border-[#F5F6FA] pt-[10px]">
+                <Navigation />
+              </div>
+              <div className="side-bar w-full  h-full col-start-2 col-end-3 row-start-1 row-end-[-1]  !ml-0 mr-auto ">
+                <SideBar />
+              </div>
+              <main className="w-full h-full  col-start-1 col-end-2  row-start-2 row-end-[-1] bg-[#F5F6FA]  pl-[30px] pr-[30px]">
                 {children}
+                {/* <CompProvider><ThemeContextProvider>{children}</ThemeContextProvider></CompProvider> */}
               </main>
             </div>
           </div>
-        </div>
-        <div className="desktop w-full h-full hidden lg:block">
-          <div className=" w-full h-full grid  grid-cols-[95.6%_4.4%] grid-rows-[70px_1fr] bg-white justify-between items-center  ml-auto gap-x-0">
-            <div className="navigation w-full  col-start-1 col-end-2  row-start-1 row-end-2 !h-[70px] pl-[84px] border-[3px] border-solid border-[#F5F6FA] pt-[10px]">
-              <Navigation />
-            </div>
-            <div className="side-bar w-full  h-full col-start-2 col-end-3 row-start-1 row-end-[-1]  !ml-0 mr-auto ">
-              <SideBar />
-            </div>
-            <main className="w-full h-full  col-start-1 col-end-2  row-start-2 row-end-[-1] bg-[#F5F6FA]  pl-[30px] pr-[30px]">
-              <CompProvider>{children}</CompProvider>
-              {/* <CompProvider><ThemeContextProvider>{children}</ThemeContextProvider></CompProvider> */}
-            </main>
-          </div>
-        </div>
-      </body>
+        </body>
+      </CompProvider>
     </html>
   );
 }

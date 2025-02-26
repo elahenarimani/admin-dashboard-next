@@ -3,7 +3,9 @@
     border: none !important;
     border-right: none !important;
   }
- 
+ .seaarch-wrapper{
+  z-index: 0;
+ }
   
   /* .css-13cymwt-control {
     border: 1px solid #EFEFEF !important;

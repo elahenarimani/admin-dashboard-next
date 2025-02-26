@@ -60,7 +60,7 @@ const SearchBoxMob = ({ inbox }: ISearchBox) => {
       border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF", // Your favorite border color when focused
       boxShadow: "none", // Remove default box-shadow (which may include blue border)
       borderRadius: state.menuIsOpen ? "12px 12px 0 0" : "30px", // Remove bottom border-radius when menu is open
-      //zIndex: 0, // Adjust z-index for the input specifically
+      zIndex: 0, // Adjust z-index for the input specifically
       "&:hover": {
         border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF",
       },
@@ -79,6 +79,7 @@ const SearchBoxMob = ({ inbox }: ISearchBox) => {
       borderTop: "none", // Remove the border between the input and dropdown
       boxShadow: "none", //remove border when menue is open
       position: "relative",
+      zIndex:0
     }),
     dropdownIndicator: (provided: any) => ({
       //Customizes the dropdown icon container, ensuring no background color or borders are applied.

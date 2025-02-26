@@ -12,7 +12,16 @@
     box-shadow: 0px 0px 27px -4px rgba(0,0,0,0.55);
 }
 
-.compose-mob{
-    max-width: 100%;
-   
+.search-wrapper{
+  z-index: 0;
+  /* position: relative; */
+  top:0;
+  right:0
+}
+.compose-mob-wrapper{
+    /* position: relative; */
+    background-color:  rgba(255, 255, 255, 0.5);
+    z-index: 12;
+    top:0;
+    right: 0;
 }

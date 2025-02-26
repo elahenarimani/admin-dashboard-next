@@ -1,5 +1,4 @@
 "use client";
-
 import { createContext, useState } from "react";
 interface IcompEmail {
     to: string;
@@ -11,10 +10,7 @@ interface IcompEmail {
     compEmail: IcompEmail[];
     setCompEmail: React.Dispatch<React.SetStateAction<IcompEmail[]>>
   }
-export const CompContext = createContext<null | {
-    compEmail: IcompEmail[];
-    setCompEmail: Function;
-}>(null);
+export const CompContext = createContext<null | IThemeContext>(null);
 
 export default function CompProvider({
   children,
@@ -22,11 +18,13 @@ export default function CompProvider({
   children: React.ReactNode;
 })
  {
-  const [compEmail, setCompEmail] = useState<IcompEmail[]>([]);
+  const [compEmail, setCompEmail] = useState<IcompEmail[]>(() => {
+    // مقداردهی اولیه فقط در اولین رندر انجام شود
+    return [];
+  });
   return (
-    <CompContext.Provider value={{ compEmail:[] , setCompEmail }}>
-      {console.log({showmail:compEmail})}
-     
+    <CompContext.Provider value={{ compEmail , setCompEmail }}>
+      {/* {console.log({showmail:compEmail})} */}
       {children}
     </CompContext.Provider>
   );

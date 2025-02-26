@@ -10,7 +10,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { LiaTimesSolid } from "react-icons/lia";
 import Link from "next/link";
 import Input from "../../input/Input";
-import "./leftSide.css";
+import "./menuBar.css";
 import SentPage from "@/app/inbox/[sent]/page";
 // import { useThemeContext } from "@/app/theme-provider/Theme-provider";
 import RightSideSent from "../rightSideSent/RightSideSent";
@@ -28,7 +28,7 @@ interface IcompEmail {
 //   setCompEmail: Function;
 // }
 // import { CompEmailContext } from "../../../app/inbox/page";
-const LeftSide = () => {
+const MenuBar = () => {
   // const CompEmailContextX = useContext(CompEmailContext);
   // const {compEmail, setCompEmail}  = useContext(ThemeContext)
   const Compose = useContext(CompContext)
@@ -258,4 +258,4 @@ const LeftSide = () => {
     </div>
   );
 };
-export default LeftSide;
+export default MenuBar;

@@ -12,7 +12,7 @@ export default function ProductPage() {
 //   const CompX = useContext(CompMailContext)
   return (
     <div className="w-full min-h-screen  bg-[#F5F6FA]">
-         <MailItem/>
+         {/* <MailItem/> */}
     </div>
   );
 }
