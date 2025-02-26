@@ -1,5 +1,5 @@
 // "use client"
-import LeftSide from "@/components/mainInbox/leftSide/menuBar";
+import LeftSide from "@/components/mainInbox/leftSide/LeftSide";
 import { Children } from "react";
 
 //   }>){

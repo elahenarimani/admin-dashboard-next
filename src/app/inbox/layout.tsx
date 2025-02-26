@@ -1,4 +1,4 @@
-import MenuBar from "../../components/mainInbox/leftSide/menuBar";
+import LeftSide from "../../components/mainInbox/leftSide/LeftSide";
 import React from "react";
 interface Iprops {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ export default function InboxLayout({ children }: Iprops) {
           صندوق ورودی
         </p>
         <div className="desktop block sm:flex w-full min-h-screen justify-start items-start gap-[30px] pt-0 mt-0 ">
-          <MenuBar  />
+          <LeftSide />
           <main className="w-full sm:w-3/4 h-full flex-grow">
           {children}</main>
         </div>
