@@ -1,4 +1,4 @@
-import RightSide from "../../components/mainInbox/rightSide/rightSide";
+import RightSide from '../../components/mainInbox/rightSide/rightSide'
 // import RightSideMob from "@/components/mainInbox/rightSideMob/RightSideMob";
 
 import React from "react";
