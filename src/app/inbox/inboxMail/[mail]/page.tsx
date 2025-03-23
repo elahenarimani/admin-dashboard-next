@@ -1,9 +1,8 @@
 
 import RightSide from '@/components/mainInbox/rightSide/rightSide'
-import RightSideSent from '@/components/mainInbox/rightSideSent/RightSideSent'
 import React from 'react'
 
-const page = () => {
+const InbocMailPage = () => {
   return (
     <div>
          <RightSide/>
@@ -13,5 +12,5 @@ const page = () => {
   )
 }
 
-export default page
+export default InbocMailPage ;
 
