@@ -1,5 +1,5 @@
 
-import ProductPage from "./product/layout";
+
 import RenderLineChart from "@/components/mainLayOut/renderLineChart/renderLineChart";
 import { RiGroupFill } from "react-icons/ri";
 import { AiOutlineRise } from "react-icons/ai";

@@ -1,4 +1,4 @@
-import LeftSide from "../../components/mainInbox/leftSide/LeftSide";
+import LeftSide from "../../components/mainInbox/leftSide/leftSide";
 import React from "react";
 interface Iprops {
   children: React.ReactNode;

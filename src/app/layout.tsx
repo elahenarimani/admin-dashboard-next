@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
-import ProductPage from "./product/layout";
 import Navigation from "@/components/mainLayOut/navigation/Navigation";
 import SideBar from "@/components/mainLayOut/sideBar/SideBar";
 // import ThemeContextProvider from "./theme-provider/ThemeContextProvider";
