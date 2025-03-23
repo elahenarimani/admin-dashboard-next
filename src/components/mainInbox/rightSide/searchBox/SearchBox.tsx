@@ -69,7 +69,7 @@ const SearchBox = ({ inbox }: ISearchBox) => {
       border: "2px solid #EFEFEF", // Match border color of dropdown with input
       borderTop: "none", // Remove the border between the input and dropdown
       boxShadow: "none", //remove border when menue is open
-      
+      width: '330px',
     }),
     dropdownIndicator: (provided: any) => ({//Customizes the dropdown icon container, ensuring no background color or borders are applied.
       ...provided,
