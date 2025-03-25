@@ -1,17 +1,10 @@
-
-// import RightSide from '../../../../components/mainInbox/rightSide/rightSide'
-import RightSide from '../../../../components/mainInbox/rightSide/rightSide'
-import React from 'react'
-
-const InboxMailPage = () => {
+import RightSide from "../../../../components/mainInbox/rightSide/rightSide";
+import React from "react";
+const Page = () => {
   return (
     <div>
-         <RightSide/>
-         {/* <RightSideSent/> */}
-       
+      <RightSide />
     </div>
-  )
-}
-
-export default InboxMailPage ;
-
+  );
+};
+export default Page;
