@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useState } from "react";
 import { CiStar } from "react-icons/ci";
-import "./rightSide.css";
+import "./rightSideComp.css";
 import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
 import { TiPencil } from "react-icons/ti";
 import { LiaTimesSolid } from "react-icons/lia";
@@ -18,7 +18,7 @@ interface IInbox {
   isRead: boolean;
   label: string;
 }
-const RightSide = () => {
+function RightSideComp(){
   const Compose = useContext(CompContext);
   console.log(CompContext);
   console.log(Compose);
@@ -376,4 +376,4 @@ const RightSide = () => {
     </div>
   );
 };
-export default RightSide;
+export default RightSideComp;
