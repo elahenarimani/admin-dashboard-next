@@ -1,7 +1,6 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { CiStar } from "react-icons/ci";
-
 import "./rightSide.css";
 import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
 import { TiPencil } from "react-icons/ti";
@@ -28,7 +27,6 @@ const RightSide = () => {
   const [inpvalTo, setInpvalTo] = useState<string>("");
   const [inpvalSubject, setInpvalSubject] = useState<string>("");
   const [inpvalContent, setInpvalContent] = useState<string>("");
-  // Compose?.setCompEmail([])
   const [inbox, setInbox] = useState<IInbox[]>([
     {
       id: 1,
@@ -150,12 +148,6 @@ const RightSide = () => {
     setIsOpenComp(!isOpenComp);
     console.log("it is toggle");
   };
-
-
-
-
-
-
   const sentBoxMob = () => {
     console.log("elahe");
     Compose?.setCompEmail([
