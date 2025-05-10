@@ -140,17 +140,6 @@ const RightSide = () => {
       label: "social",
     },
   ]);
-  // useEffect (() => {
-  //   if(Compose?.compEmail == undefined){
-  //      Compose?.setCompEmail([])
-
-  //   return Compose?.setCompEmail([...Compose?.compEmail])
-  // }
-  // } , [Compose?.compEmail , Compose?.setCompEmail])
-  // if(!(Compose?.compEmail)){
-  //   let x = Compose?.compEmail
-  //   return {x : []}
-  // }
   const shortMessage = (message: string, maxLength: number) => {
     if (message.length > maxLength) {
       return message.slice(0, maxLength) + "...";
@@ -178,9 +167,6 @@ const RightSide = () => {
         id: Date.now(),
       },
     ]);
-
-    
-    // Compose?.setCompEmail([{ to:"asd", subject:"hi" ,content:"goodbye" ,id:Date.now()} ])
     console.log(Compose?.compEmail);
     console.log(inpvalTo);
     console.log(inpvalSubject);

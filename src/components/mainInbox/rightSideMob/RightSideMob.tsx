@@ -2,13 +2,13 @@
 // import React, { useContext, useEffect, useState } from "react";
 // import { CiStar } from "react-icons/ci";
 
-// import "./rightSideMob.css";
-// import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
+// import "./RightSideMob.css";
+// import SearchBoxMob from "../RightSideMob/searchBoxMob/SearchBoxMob";
 // import { TiPencil } from "react-icons/ti";
 // import { LiaTimesSolid } from "react-icons/lia";
 // import Input from "../../input/Input";
 // import { CompContext } from "@/app/CompProvider";
-// import ActionBox from "../rightSide/actionBox/actionBox";
+// import ActionBox from "../RightSide/actionBox/actionBox";
 // interface IInbox {
 //   id: number;
 //   from: string;
