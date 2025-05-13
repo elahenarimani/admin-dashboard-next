@@ -4,8 +4,6 @@ import { IoMdArchive } from "react-icons/io";
 import { BiSolidEnvelopeOpen } from "react-icons/bi";
 import Button from "../../../button/Button";
 import { CompContext } from "@/app/CompProvider";
-// import {CompEmailContext}from "../../../../app/inbox/page"
-// import { useThemeContext } from "@/app/theme-provider/ThemeContextProvider";
 interface IcompEmail {
   to: string ;
   subject: string ;
@@ -17,19 +15,18 @@ interface IActionBox {
   setSelectedEmails: Function;
 }
 const ActionBoxSent = ({
-
   selectedEmails,
   setSelectedEmails,
 }: IActionBox) => {
    const Compose = useContext(CompContext)
-  // const { compEmail , setCompEmail} = useThemeContext()
-  // const CompEmailContextX = useContext(CompEmailContext)
   const handleDelete = () => {
+    if (Compose && Compose.setCompEmail) {
     const newInbox = Compose?.compEmail.filter(
       (email) => !selectedEmails.includes(email.id)
     ); // Create a new array with unselected inbox
     Compose?.setCompEmail(newInbox); //selected emails are removed
     setSelectedEmails([]);
+  }
   };
   return (
     <div className="w-[130px] h-[40px] grid grid-cols-3  border-[2px] border-solid border-[#EFEFEF] rounded-[12px] bg-[#F5F6FA]">

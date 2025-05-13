@@ -15,11 +15,6 @@ interface IModalMenoMob {
 }
 const ModalMenuMob = ({ openMenoMob, setOpenMenoMob }: IModalMenoMob) => {
   const Compose = useContext(CompContext)
-  // const { compEmail, setCompEmail } = useThemeContext();
-  // const { compEmail, setCompEmail } = useThemeContext();
-  // const [inpvalTo, setInpvalTo] = useState<string>("");
-  // const [inpvalSubject, setInpvalSubject] = useState<string>("");
-  // const [inpvalContent, setInpvalContent] = useState<string>("");
   const modalRef = useRef<any>(null);
   useEffect(() => {//close modal
     const handleClickOutside = (event: MouseEvent) => {
