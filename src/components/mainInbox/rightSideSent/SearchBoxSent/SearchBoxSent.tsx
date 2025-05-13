@@ -1,11 +1,10 @@
 "use client";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import AsyncSelect from "react-select/async";
 import { components } from "react-select";
 import { IoSearch } from "react-icons/io5";
 import "./searchBoxSent.css";
 import { CompContext } from "@/app/CompProvider";
-import { BorderRight, BorderRightOutlined } from "@mui/icons-material";
 interface IcompEmail {
   to: string;
   subject: string;
@@ -42,16 +41,13 @@ const SearchBoxSent = () => {
   };
   const customStyles = {
     control: (base: any, state: any) => ({
-      //Customizes the input’s container, focusing on the border, box-shadow, and how the component looks when the menu is open. The input and arrow are reversed in order (due to the Persian layout).
       ...base,
       width: "330px", // Adjust the width of the entire control (including the input)
       height: "40px", // Adjust the height of the entire control
       backgroundColor: "#F5F6FA", // Set input background color
-      // backGroundColor: '#F5F6FA',
       border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF", // Your favorite border color when focused
       boxShadow: "none", // Remove default box-shadow (which may include blue border)
       borderRadius: state.menuIsOpen ? "12px 12px 0 0" : "30px", // Remove bottom border-radius when menu is open
-      //zIndex: 0, // Adjust z-index for the input specifically
       "&:hover": {
         border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF",
       },
@@ -60,7 +56,6 @@ const SearchBoxSent = () => {
       flexDirection: "row-reverse", // Reverse the order of the input and arrow
     }),
     menu: (base: any) => ({
-      //Styles the dropdown menu, aligning the border, removing the gap, and applying a matching border-radius for a seamless connection with the input.
       ...base,
       marginTop: 0, // Remove the gap between input and dropdown
       borderRadius: "0 0 12px 12px", // Connect dropdown with input by matching the border-radius
@@ -70,7 +65,6 @@ const SearchBoxSent = () => {
       width: "330px",
     }),
     dropdownIndicator: (provided: any) => ({
-      //Customizes the dropdown icon container, ensuring no background color or borders are applied.
       ...provided,
       padding: "0 8px",
       boxShadow: "none", // Ensure no box-shadow exists
@@ -78,18 +72,15 @@ const SearchBoxSent = () => {
       BorderRight: "none",
     }),
     indicatorsContainer: (provided: any) => ({
-      //Similar to dropdownIndicator, but for the entire container holding indicators like the dropdown arrow.
       ...provided,
       backgroundColor: "transparent", // No background color to interfere
       padding: "0 3px", // Adjust padding for the arrow
     }),
     valueContainer: (base: any) => ({
-      // Adjusts padding within the input field.
       ...base,
       padding: "0 0", // Adjust padding for the input field
     }),
     indicatorSeparator: () => ({
-      //Removes the separator line between the input and dropdown icon.
       display: "none", // Hides the border between the input and the dropdown icon
     }),
   };

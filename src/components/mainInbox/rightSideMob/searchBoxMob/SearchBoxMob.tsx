@@ -18,7 +18,7 @@ interface ISearchBox {
   inbox: IInbox[];
   className?: string;
 }
-const SearchBoxMob = ({ inbox }: ISearchBox) => {
+function SearchBoxMob({ inbox }: ISearchBox){
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [openMenoMob, setOpenMenoMob] = useState(false);
   const filterEmail = (inputValue: string) => {
@@ -64,7 +64,6 @@ const SearchBoxMob = ({ inbox }: ISearchBox) => {
       paddingLeft: "30px",
     }),
     menu: (base: any) => ({
-      //Styles the dropdown menu, aligning the border, removing the gap, and applying a matching border-radius for a seamless connection with the input.
       ...base,
       width: "100%",
       marginTop: 0, // Remove the gap between input and dropdown
@@ -76,7 +75,6 @@ const SearchBoxMob = ({ inbox }: ISearchBox) => {
       zIndex:0
     }),
     dropdownIndicator: (provided: any) => ({
-      //Customizes the dropdown icon container, ensuring no background color or borders are applied.
       ...provided,
       padding: "0 8px",
       boxShadow: "none", // Ensure no box-shadow exists
@@ -95,7 +93,6 @@ const SearchBoxMob = ({ inbox }: ISearchBox) => {
       padding: "0 0", // Adjust padding for the input field
     }),
     indicatorSeparator: () => ({
-      //Removes the separator line between the input and dropdown icon.
       display: "none", // Hides the border between the input and the dropdown icon
     }),
   };
@@ -114,8 +111,6 @@ const SearchBoxMob = ({ inbox }: ISearchBox) => {
           onFocus={() => setMenuIsOpen(true)} //Toggles the dropdown menu’s visibility on focus and blur, using
           onBlur={() => setMenuIsOpen(false)} //Toggles the dropdown menu’s visibility on focus and blur, using
           menuIsOpen={menuIsOpen}
-          //menuPlacement="auto" // Control the placement of the dropdown
-          // menuPortalTarget={document.body} // Ensure the dropdown is appended to the body
         />
         <PiTableFill
           style={{

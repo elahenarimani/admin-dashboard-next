@@ -5,10 +5,12 @@ import { TiPencil } from "react-icons/ti";
 import { LiaTimesSolid } from "react-icons/lia";
 import { CompContext } from "@/app/CompProvider";
 import Input from "../../input/Input";
-import SearchBox from "./searchBox/searchBox";
-import ActionBox from "./actionBox/actionBox";
+// import SearchBox from "/searchBox/SearchBox";
+// import ActionBox from "/actionBox/ActionBox";
 import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
 import "./rightSideComp.css";
+import ActionBox from "./actionBox/ActionBox";
+import SearchBox from "./searchBox/SearchBox";
 interface IInbox {
   id: number;
   from: string;
@@ -20,7 +22,6 @@ interface IInbox {
 }
 function RightSideComp() {
   const Compose = useContext(CompContext);
-  console.log(CompContext);
   console.log(Compose);
   const [selectedEmails, setSelectedEmails] = useState<number[]>([]); //Just get the ID for deleting the email
   const [isOpenComp, setIsOpenComp] = useState<Boolean>(false);
