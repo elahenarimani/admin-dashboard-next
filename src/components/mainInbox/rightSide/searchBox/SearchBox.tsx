@@ -1,10 +1,9 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import { components } from "react-select";
 import { IoSearch } from "react-icons/io5";
 import "./searchBox.css";
-import { BorderRight, BorderRightOutlined } from "@mui/icons-material";
 interface IInbox {
   id: number;
   from: string;
@@ -18,7 +17,7 @@ interface ISearchBox {
   inbox: IInbox[];
   
 }
-const SearchBox = ({ inbox }: ISearchBox) => {
+function SearchBox ({ inbox }: ISearchBox){
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const filterEmail = (inputValue: string) => {
     return inbox.filter(
@@ -50,11 +49,9 @@ const SearchBox = ({ inbox }: ISearchBox) => {
       width: '330px', // Adjust the width of the entire control (including the input)
       height: '40px', // Adjust the height of the entire control
       backgroundColor: "#F5F6FA", // Set input background color
-      // backGroundColor: '#F5F6FA',
       border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF", // Your favorite border color when focused
       boxShadow: "none", // Remove default box-shadow (which may include blue border)
       borderRadius: state.menuIsOpen ? "12px 12px 0 0" : "30px", // Remove bottom border-radius when menu is open
-      //zIndex: 0, // Adjust z-index for the input specifically
       "&:hover": {
         border: state.isFocused ? "2px solid #EFEFEF" : "2px solid #EFEFEF",
       },

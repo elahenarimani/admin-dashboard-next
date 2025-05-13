@@ -1,14 +1,14 @@
 "use client";
 import React, { useContext, useState } from "react";
 import { CiStar } from "react-icons/ci";
-import "./rightSideComp.css";
-import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
 import { TiPencil } from "react-icons/ti";
 import { LiaTimesSolid } from "react-icons/lia";
-import Input from "../../input/Input";
 import { CompContext } from "@/app/CompProvider";
+import Input from "../../input/Input";
 import SearchBox from "./searchBox/searchBox";
 import ActionBox from "./actionBox/actionBox";
+import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
+import "./rightSideComp.css";
 interface IInbox {
   id: number;
   from: string;
@@ -175,7 +175,6 @@ function RightSideComp() {
   return (
     <div>
       <div className="mobile inbox-wrapper block sm:hidden w-full h-full pt-[15px]">
-        {/* <div className="compose-mob-wrapper w-full h-screen fixed top-0 right-0 opacity-50 bg-black flex justify-center items-center    "> */}
         {isOpenComp && (
           <div className="compose-mob-wrapper w-full h-screen fixed top-0 right-0  bg-white flex justify-center items-center ">
             <div className="compose-mob-content min-w-10/12 flex flex-col justify-start items-center bg-[#F2F6FC]  rounded-[10px]">

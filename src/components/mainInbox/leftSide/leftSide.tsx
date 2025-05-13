@@ -1,5 +1,7 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
+import Link from "next/link";
+import { CompContext } from "@/app/CompProvider";
 import { MdOutlineMail } from "react-icons/md";
 import { FaRegStar } from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
@@ -8,46 +10,22 @@ import { BsExclamationTriangle } from "react-icons/bs";
 import { TbMessageCircleStar } from "react-icons/tb";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { LiaTimesSolid } from "react-icons/lia";
-import Link from "next/link";
 import Input from "../../input/Input";
 import "./leftSide.css";
-import SentPage from "@/app/inbox/[sent]/page";
-// import { useThemeContext } from "@/app/theme-provider/Theme-provider";
-import RightSideSent from "../rightSideSent/RightSideSent";
-import { useRouter } from "next/router";
-// import { useThemeContext } from "@/app/theme-provider/ThemeContextProvider";
-import { CompContext } from "@/app/CompProvider";
+
 interface IcompEmail {
   to: string;
   subject: string;
   content: string;
   id: number;
 }
-// interface elahe{
-//   compEmail: IcompEmail[];
-//   setCompEmail: Function;
-// }
-// import { CompEmailContext } from "../../../app/inbox/page";
 const LeftSide = () => {
-  // const CompEmailContextX = useContext(CompEmailContext);
-  // const {compEmail, setCompEmail}  = useContext(ThemeContext)
-  const Compose = useContext(CompContext)
-  // const {compEmail, setCompEmail } = useThemeContext();
+  const Compose = useContext(CompContext);
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const [inpvalTo, setInpvalTo] = useState<string>("");
   const [inpvalSubject, setInpvalSubject] = useState<string>("");
   const [inpvalContent, setInpvalContent] = useState<string>("");
   const toggleCompose = () => setIsOpen(!isOpen);
-  // const router = useRouter();
-
-  // useEffect(() => {
-  //   router.push("inbox"); //
-  // }, []);
-  // const [compEmail, setCompEmail] = useState<IcompEmail[]>([]);
-  // console.log(isOpen);
-  // function openInbox(){
-
-  // }
   function sentBox() {
     console.log(inpvalTo);
     Compose?.setCompEmail([
@@ -59,7 +37,6 @@ const LeftSide = () => {
         id: Date.now(),
       },
     ]);
-
     setIsOpen(false);
     setInpvalTo("");
     setInpvalSubject("");
@@ -70,13 +47,12 @@ const LeftSide = () => {
     console.log(inpvalTo);
     console.log(inpvalSubject);
     console.log(inpvalContent);
-    // console.log(useThemeContext);
   }
   return (
     <div className="w-1/4 hidden sm:block bg-white border-[0.3px] border-solid border-[#B9B9B9] min-h-screen  rounded-[5px] pt-[24px] mt-0 pl-[25px] pr-[25px] ">
       <div
         className="bg-[#5A8DFF] w-full h-[43px] rounded-[5px] color-white flex items-center justify-center"
-        onClick={()=>toggleCompose()}
+        onClick={() => toggleCompose()}
       >
         <p className="text-white ">نوشتن</p>
       </div>
@@ -86,7 +62,6 @@ const LeftSide = () => {
             ایمیل های من
           </p>
         </div>
-
         <div className="email w-full h-[43px]  flex flex-row justify-between items-center pr-[16px] pt-[16px] pb-[8px]">
           <Link href="/inbox/inboxMail/mail">
             <div className=" flex justify-between items-center gap-[12px]">
@@ -95,10 +70,10 @@ const LeftSide = () => {
               </div>
               <p className="text-[##202224] text-[14px]">ایمیل</p>
             </div>
-            </Link>
-            <div>
-              <p className="text-[14px] text-[##202224]">211313</p>
-            </div>
+          </Link>
+          <div>
+            <p className="text-[14px] text-[##202224]">211313</p>
+          </div>
         </div>
         <div className="starred w-full h-[43px]  flex flex-row justify-between items-center pr-[16px] pt-[8px] pb-[8px]">
           <div className="flex justify-between items-center gap-[12px]">
@@ -213,7 +188,6 @@ const LeftSide = () => {
               <div className="w-full h-full border-b[#F2F6FC] border-solid border-b-[1px] flex justify-start items-center ">
                 <p className=" text-[#B5B7B6]">موضوع</p>
                 <div className="flex-grow pl-[10px]">
-                  {/*to item stretch*/}
                   <Input
                     value={inpvalSubject}
                     inputHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -246,15 +220,6 @@ const LeftSide = () => {
           </div>
         )}
       </div>
-      {/* {compEmail.map((item) => {
-        return ( */}
-      {/* <RightSideSent
-            to={inpvalTo}
-            subject={inpvalSubject}
-            content={inpvalContent}
-          /> */}
-      {/* );
-      })} */}
     </div>
   );
 };

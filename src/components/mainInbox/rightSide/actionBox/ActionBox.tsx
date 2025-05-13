@@ -18,12 +18,12 @@ interface IActionBox {
   selectedEmails: number[];
   setSelectedEmails: Function;
 }
-const ActionBox = ({
+function ActionBox({
   inbox,
   setInbox,
   selectedEmails,
   setSelectedEmails,
-}: IActionBox) => {
+}: IActionBox){
   const handleDelete = () => {
     setInbox(inbox.filter((email) => !selectedEmails.includes(email.id)))
     setSelectedEmails([]);

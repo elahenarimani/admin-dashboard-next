@@ -1,13 +1,9 @@
-import React from 'react'
-
+import React from "react";
 const CheckBox = () => {
   return (
     <div>
-      <input
-                type="checkbox"
-                className="w-[16px] h-[16px]"
-              />
+      <input type="checkbox" className="w-[16px] h-[16px]" />
     </div>
-  )
-}
-export default CheckBox
+  );
+};
+export default CheckBox;
