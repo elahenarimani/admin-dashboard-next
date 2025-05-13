@@ -16,7 +16,7 @@ interface IInbox {
 interface ISearchBox {
   inbox: IInbox[];
 }
-function SearchBox ({ inbox }: ISearchBox){
+function SearchBoxComp({ inbox }: ISearchBox){
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const filterEmail = (inputValue: string) => {
     return inbox.filter(
@@ -106,4 +106,4 @@ function SearchBox ({ inbox }: ISearchBox){
     </div>
   );
 };
-export default SearchBox;
+export default SearchBoxComp;
