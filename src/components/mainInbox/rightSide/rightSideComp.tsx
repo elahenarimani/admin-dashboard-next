@@ -5,8 +5,6 @@ import { TiPencil } from "react-icons/ti";
 import { LiaTimesSolid } from "react-icons/lia";
 import { CompContext } from "@/app/CompProvider";
 import Input from "../../input/Input";
-// import SearchBox from "/searchBox/SearchBox";
-// import ActionBox from "/actionBox/ActionBox";
 import SearchBoxMob from "../rightSideMob/searchBoxMob/SearchBoxMob";
 import "./rightSideComp.css";
 import ActionBox from "./actionBox/ActionBox";

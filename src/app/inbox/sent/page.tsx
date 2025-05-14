@@ -1,14 +1,11 @@
-"use client"
+"use client";
+import React from "react";
 import RightSideSent from "@/components/mainInbox/rightSideSent/RightSideSent";
 import { useTheme } from "@emotion/react";
-import React, { useContext } from "react";
-
-
-
 interface ISentPage {
-    inpvalTo: string;
-    inpvalSubject: string;
-    inpvalContent: string;
+  inpvalTo: string;
+  inpvalSubject: string;
+  inpvalContent: string;
   id: number;
   params?: { sent: string };
 }
@@ -19,12 +16,11 @@ const SentPage = ({
   id,
   params,
 }: ISentPage) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <div>
-          <RightSideSent            // key={item.id}
-          />
+      <RightSideSent />
     </div>
   );
 };
