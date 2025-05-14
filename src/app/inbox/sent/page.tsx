@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import RightSideSent from "@/components/mainInbox/rightSideSent/RightSideSent";
-import { useTheme } from "@emotion/react";
 interface ISentPage {
   inpvalTo: string;
   inpvalSubject: string;
@@ -9,19 +8,16 @@ interface ISentPage {
   id: number;
   params?: { sent: string };
 }
-const SentPage = ({
+export default function SentPage({
   inpvalTo,
   inpvalSubject,
   inpvalContent,
   id,
   params,
-}: ISentPage) => {
-  const theme = useTheme();
-
+}: ISentPage) {
   return (
     <div>
       <RightSideSent />
     </div>
   );
-};
-export default SentPage;
+}

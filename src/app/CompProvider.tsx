@@ -24,7 +24,6 @@ export default function CompProvider({
   });
   return (
     <CompContext.Provider value={{ compEmail , setCompEmail }}>
-      {/* {console.log({showmail:compEmail})} */}
       {children}
     </CompContext.Provider>
   );
